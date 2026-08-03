@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Design tokens — source of truth: stitch/DESIGN.md (spacing/typography/shape)
+ * and CLAUDE.md (the six approved colors). The `colors:` block in DESIGN.md
+ * itself is an auto-generated Material palette and is intentionally ignored.
+ */
+@theme {
+  /* Colors — the only six colors allowed anywhere in this codebase */
+  --color-cream: #fcf9f8;
+  --color-white: #ffffff;
+  --color-charcoal: #2b2b2b;
+  --color-maroon: #7a1e3a;
+  --color-blush: #f8f3f4;
+  --color-line: #ede6e8;
+
+  /* Font families — CSS variables below are provided by next/font/google in app/layout.tsx */
+  --font-heading: var(--font-eb-garamond), serif;
+  --font-body: var(--font-plus-jakarta-sans), sans-serif;
+
+  /* Typography scale (stitch/DESIGN.md) — mobile variants applied via responsive classes, e.g. text-display-lg-mobile md:text-display-lg */
+  --text-display-lg: 3rem;
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 500;
+
+  --text-display-lg-mobile: 2rem;
+  --text-display-lg-mobile--line-height: 1.2;
+  --text-display-lg-mobile--letter-spacing: -0.01em;
+  --text-display-lg-mobile--font-weight: 500;
+
+  --text-headline-md: 2rem;
+  --text-headline-md--line-height: 1.2;
+  --text-headline-md--font-weight: 500;
+
+  --text-headline-md-mobile: 1.5rem;
+  --text-headline-md-mobile--line-height: 1.2;
+  --text-headline-md-mobile--font-weight: 500;
+
+  --text-title-sm: 1.125rem;
+  --text-title-sm--line-height: 1.5;
+  --text-title-sm--font-weight: 600;
+
+  --text-body-md: 1rem;
+  --text-body-md--line-height: 1.6;
+  --text-body-md--font-weight: 400;
+
+  --text-label-caps: 0.75rem;
+  --text-label-caps--line-height: 1;
+  --text-label-caps--letter-spacing: 0.15em;
+  --text-label-caps--font-weight: 600;
+
+  --text-price-tag: 1rem;
+  --text-price-tag--line-height: 1;
+  --text-price-tag--font-weight: 700;
+
+  /* Spacing scale (stitch/DESIGN.md) — named tokens so no page phase invents its own */
+  --spacing-gutter: 1rem; /* 16px */
+  --spacing-margin-mobile: 1rem; /* 16px */
+  --spacing-margin-desktop: 2.5rem; /* 40px */
+  --spacing-section-mobile: 3rem; /* 48px */
+  --spacing-section-desktop: 5rem; /* 80px */
+
+  /*
+   * Shape: buttons/inputs use a 2px radius. Tailwind v4's default
+   * --radius-xs (0.125rem = 2px) already covers this — use `rounded-xs`,
+   * no override needed here. Product imagery stays unrounded (no utility).
+   */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-cream text-charcoal font-body antialiased;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  :focus-visible {
+    @apply outline-none ring-2 ring-maroon ring-offset-2;
+  }
 }
