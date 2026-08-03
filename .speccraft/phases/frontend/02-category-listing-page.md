@@ -16,6 +16,7 @@ Delivers the "browse and filter" step of the discovery flow, sitting between the
 - `/category/[slug]` route
 - **OWNS:** `FilterChips`, `SortDropdown`, `ProductGrid`
 - Breadcrumb, category header on blush band, product count, load more
+- **Special slug `all`:** `/category/all` reuses this exact route/page with no category filter applied — the Sanity query branches to omit the `category` filter when `slug === "all"`, showing products across all four categories. This is the "All" state the filter chips already need per the design, not a separate page. Discovered/decided during `frontend/01`'s planning — `frontend/01`'s home page links to `/category/all?sort=featured` (Bestsellers "View All") and `/category/all?sort=newest` (New Arrivals "Explore More"), so this route must handle a `?sort=` query param (at least `featured` and `newest` values) driving the initial sort order shown, in addition to whatever `SortDropdown` UI this phase builds.
 
 ---
 

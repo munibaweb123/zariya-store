@@ -69,3 +69,18 @@ export async function listNewArrivals(limit = 8): Promise<Product[]> {
   const query = groq`*[_type == "product"] | order(_createdAt desc) [0...${limit}] ${PRODUCT_PROJECTION}`;
   return sanityFetch<Product[]>(query);
 }
+
+// Added by frontend/01: one round trip for all four category tiles, instead
+// of four separate listProductsByCategory calls. Returns the most recent
+// product per category (or null if that category has no products yet).
+export type CategoryPreviews = Record<Category, Product | null>;
+
+export async function listCategoryPreviews(): Promise<CategoryPreviews> {
+  const query = groq`{
+    "dresses": *[_type == "product" && category == "dresses"] | order(_createdAt desc) [0] ${PRODUCT_PROJECTION},
+    "perfumes": *[_type == "product" && category == "perfumes"] | order(_createdAt desc) [0] ${PRODUCT_PROJECTION},
+    "beauty": *[_type == "product" && category == "beauty"] | order(_createdAt desc) [0] ${PRODUCT_PROJECTION},
+    "jewellery": *[_type == "product" && category == "jewellery"] | order(_createdAt desc) [0] ${PRODUCT_PROJECTION}
+  }`;
+  return sanityFetch<CategoryPreviews>(query);
+}
