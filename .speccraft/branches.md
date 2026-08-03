@@ -13,8 +13,8 @@ Branch naming convention: `<type>/<area>/<name>`. All branches below are `featur
 
 | # | Branch | Phase file | Depends on | Status |
 |---|---|---|---|---|
-| 01 | `feature/frontend/home-page` | `.speccraft/phases/frontend/01-home-page.md` | infra/01, infra/02 | Ready (stub only — needs `/sc.plan` detailing) |
-| 02 | `feature/frontend/category-listing-page` | `.speccraft/phases/frontend/02-category-listing-page.md` | infra/01, infra/02, frontend/01 | Blocked |
+| 01 | `feature/frontend/home-page` | `.speccraft/phases/frontend/01-home-page.md` | infra/01, infra/02 | ✅ Complete — merged to develop |
+| 02 | `feature/frontend/category-listing-page` | `.speccraft/phases/frontend/02-category-listing-page.md` | infra/01, infra/02, frontend/01 | ✅ Complete — merged to develop |
 | 03 | `feature/frontend/cart-state` | `.speccraft/phases/frontend/03-cart-state.md` | infra/01 | Ready (stub only — needs `/sc.plan` detailing) |
 | 04 | `feature/frontend/product-detail-page` | `.speccraft/phases/frontend/04-product-detail-page.md` | infra/01, infra/02, frontend/01, frontend/03 | Blocked |
 | 05 | `feature/frontend/cart-page` | `.speccraft/phases/frontend/05-cart-page.md` | frontend/03, frontend/04 | Blocked |
