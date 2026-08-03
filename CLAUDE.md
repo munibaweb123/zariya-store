@@ -186,7 +186,7 @@ Established in `frontend/05-cart-page`:
 - Every colour must come from a Tailwind token. Zero hardcoded hex values outside `tailwind.config.ts`.
 - Pages are server components by default. Add `'use client'` only to genuinely interactive leaf components (cart, quantity stepper, filter chips, mobile menu).
 - No external image hotlinking — Sanity CDN or local assets only.
-- Phone numbers are Pakistani format; city and province are dropdowns of Pakistani options, not free text.
+- Phone numbers are Pakistani format; city is a dropdown of Pakistani options, not free text. **Province is not a form field** — corrected during `frontend/06`'s planning: Pakistani cities map unambiguously to provinces, and courier slips (TCS, Leopard, PostEx) don't use province, so asking for it only adds a mobile-first form field and a mismatch failure mode for no benefit. `lib/checkout/cities.ts` maps each dropdown city to its province; the `Order.province` column is populated server-side by deriving it from the selected city, never submitted by the client. Do not re-add a Province select in a later phase.
 - Prices display as `Rs. 1,850` with comma separators.
 - The site must be usable on a mid-range Android phone on 3G.
 
