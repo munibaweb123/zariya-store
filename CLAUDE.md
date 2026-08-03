@@ -47,8 +47,8 @@ Orders are fulfilled manually: owner confirms on WhatsApp, ships via a local cou
 
 ## Tech Stack
 
-- **Framework:** Next.js 15 (App Router), TypeScript strict mode
-- **Styling:** Tailwind CSS — design tokens only, no arbitrary hex values in components
+- **Framework:** Next.js 16.2.12 (App Router), TypeScript strict mode — corrected from "Next.js 15" during `infra/01`; the installed version is what's in `package.json`, not the original placeholder
+- **Styling:** Tailwind CSS v4.3.3 — design tokens only, no arbitrary hex values in components. CSS-first config (`@theme` in `app/globals.css`), not `tailwind.config.ts` — see Conventions
 - **Content:** Sanity CMS for products (name, slug, price, salePrice, category, images, description, inStock, featured)
 - **Database:** Neon Postgres with Prisma — orders only
 - **Mutations:** Next.js server actions. No separate API layer, no Express, no FastAPI.
@@ -110,7 +110,18 @@ Every phase file must carry a `Visual reference:` line pointing at the exact `sc
 ---
 
 ## Conventions
-<!-- Established during Phase 1 and updated by /sc.sync after each phase -->
+
+Established in `infra/01-design-system-setup` (the first phase built):
+
+- **Tailwind v4 is CSS-first.** There is no `tailwind.config.ts`/`.js` — the six color tokens, typography scale, and spacing scale live in a single `@theme` block in `app/globals.css`. Do not create a JS/TS Tailwind config; do not scatter tokens across multiple CSS files.
+- **Font variables:** `next/font/google` loaders use `variable: '--font-eb-garamond'` and `variable: '--font-plus-jakarta-sans'` in `app/layout.tsx`; the `@theme` block maps these to `--font-heading`/`--font-body`, which back the `font-heading`/`font-body` utilities. Both fonts load with `subsets: ['latin']`, `display: 'swap'`, and an explicit weight list only (EB Garamond: `500`; Plus Jakarta Sans: `400, 600, 700`) — never load a full font family.
+- **Component locations are fixed:** shared layout pieces live in `components/layout/` (`Nav.tsx`, `Footer.tsx`, `MobileMenu.tsx`, `NavCartBadge.tsx`, `nav-links.ts`), shared primitives in `components/ui/` (`Button.tsx`, `ProductImage.tsx`). New shared components follow this same split — layout chrome vs. reusable UI primitives.
+- **`Button` is the only button.** Every CTA/action imports `components/ui/Button.tsx` (`variant="primary" | "secondary"`, optional `href` to render as a link) instead of styling a raw `<button>`.
+- **`ProductImage` is the only product-photo frame.** `components/ui/ProductImage.tsx` wraps `next/image` in the blush/sharp-corner/no-shadow frame — any page rendering product photography uses it instead of inventing its own wrapper.
+- **`NavCartBadge` is the one seam for live cart state.** `components/layout/NavCartBadge.tsx` is a `'use client'` component taking an optional `count` prop; the cart-state phase edits only this file's internals to read from the cart store — `Nav.tsx` itself is never touched for that purpose.
+- **Named spacing tokens, not raw arbitrary values:** `gutter`, `margin-mobile`/`margin-desktop`, `section-mobile`/`section-desktop` (from `stitch/DESIGN.md`'s scale) are defined once in `@theme` and used via `p-*`/`gap-*`/`m-*` utilities (e.g. `px-margin-mobile md:px-margin-desktop`). Do not hand-write pixel/rem spacing values in page components.
+- **No icon library.** Hamburger/search/bag/WhatsApp icons are small inline SVGs (thin 1.5px stroke) — do not add `react-icons`, `lucide-react`, etc.
+- **Repo hygiene fixed in this phase:** `.next/` and `node_modules/` were accidentally committed in the initial scaffold and are now untracked and gitignored, along with `.env*.local`, `next-env.d.ts`, and `.vercel`.
 
 ---
 

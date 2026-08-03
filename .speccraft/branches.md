@@ -4,23 +4,23 @@ Branch naming convention: `<type>/<area>/<name>`. All branches below are `featur
 
 ## infra
 
-| # | Branch | Phase file | Depends on |
-|---|---|---|---|
-| 01 | `feature/infra/design-system-setup` | `.speccraft/phases/infra/01-design-system-setup.md` | None (foundation) |
-| 02 | `feature/infra/data-layer-setup` | `.speccraft/phases/infra/02-data-layer-setup.md` | None (foundation) |
+| # | Branch | Phase file | Depends on | Status |
+|---|---|---|---|---|
+| 01 | `feature/infra/design-system-setup` | `.speccraft/phases/infra/01-design-system-setup.md` | None (foundation) | ✅ Complete — merged to develop |
+| 02 | `feature/infra/data-layer-setup` | `.speccraft/phases/infra/02-data-layer-setup.md` | None (foundation) | Ready |
 
 ## frontend
 
-| # | Branch | Phase file | Depends on |
-|---|---|---|---|
-| 01 | `feature/frontend/home-page` | `.speccraft/phases/frontend/01-home-page.md` | infra/01, infra/02 |
-| 02 | `feature/frontend/category-listing-page` | `.speccraft/phases/frontend/02-category-listing-page.md` | infra/01, infra/02, frontend/01 |
-| 03 | `feature/frontend/cart-state` | `.speccraft/phases/frontend/03-cart-state.md` | infra/01 |
-| 04 | `feature/frontend/product-detail-page` | `.speccraft/phases/frontend/04-product-detail-page.md` | infra/01, infra/02, frontend/01, frontend/03 |
-| 05 | `feature/frontend/cart-page` | `.speccraft/phases/frontend/05-cart-page.md` | frontend/03, frontend/04 |
-| 06 | `feature/frontend/checkout-page` | `.speccraft/phases/frontend/06-checkout-page.md` | infra/02, frontend/03, frontend/05 |
-| 07 | `feature/frontend/order-confirmation-page` | `.speccraft/phases/frontend/07-order-confirmation-page.md` | infra/02, frontend/04, frontend/06 |
-| 08 | `feature/frontend/our-story-page` | `.speccraft/phases/frontend/08-our-story-page.md` | infra/01 |
+| # | Branch | Phase file | Depends on | Status |
+|---|---|---|---|---|
+| 01 | `feature/frontend/home-page` | `.speccraft/phases/frontend/01-home-page.md` | infra/01, infra/02 | Blocked — infra/02 incomplete |
+| 02 | `feature/frontend/category-listing-page` | `.speccraft/phases/frontend/02-category-listing-page.md` | infra/01, infra/02, frontend/01 | Blocked |
+| 03 | `feature/frontend/cart-state` | `.speccraft/phases/frontend/03-cart-state.md` | infra/01 | Ready (stub only — needs `/sc.plan` detailing) |
+| 04 | `feature/frontend/product-detail-page` | `.speccraft/phases/frontend/04-product-detail-page.md` | infra/01, infra/02, frontend/01, frontend/03 | Blocked |
+| 05 | `feature/frontend/cart-page` | `.speccraft/phases/frontend/05-cart-page.md` | frontend/03, frontend/04 | Blocked |
+| 06 | `feature/frontend/checkout-page` | `.speccraft/phases/frontend/06-checkout-page.md` | infra/02, frontend/03, frontend/05 | Blocked |
+| 07 | `feature/frontend/order-confirmation-page` | `.speccraft/phases/frontend/07-order-confirmation-page.md` | infra/02, frontend/04, frontend/06 | Blocked |
+| 08 | `feature/frontend/our-story-page` | `.speccraft/phases/frontend/08-our-story-page.md` | infra/01 | Ready (stub only — needs `/sc.plan` detailing) |
 
 ## Build order
 
