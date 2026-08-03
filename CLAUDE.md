@@ -49,8 +49,8 @@ Orders are fulfilled manually: owner confirms on WhatsApp, ships via a local cou
 
 - **Framework:** Next.js 16.2.12 (App Router), TypeScript strict mode — corrected from "Next.js 15" during `infra/01`; the installed version is what's in `package.json`, not the original placeholder
 - **Styling:** Tailwind CSS v4.3.3 — design tokens only, no arbitrary hex values in components. CSS-first config (`@theme` in `app/globals.css`), not `tailwind.config.ts` — see Conventions
-- **Content:** Sanity CMS for products (name, slug, price, salePrice, category, images, description, inStock, featured)
-- **Database:** Neon Postgres with Prisma — orders only
+- **Content:** Sanity CMS (`sanity@6.8.0`, `next-sanity@13.2.3`) for products (name, slug, price, salePrice, category, images, description, inStock, featured). Two datasets: `production` (real catalog) and `development` (sample/seed data only — see Conventions)
+- **Database:** Neon Postgres with Prisma 7 (`prisma@7.9.1`) — orders only. Prisma 7 requires a driver adapter (`@prisma/adapter-pg` + `pg`); connection config lives in `prisma.config.ts`, not `schema.prisma` — see Conventions
 - **Mutations:** Next.js server actions. No separate API layer, no Express, no FastAPI.
 - **Cart state:** client-side, persisted to localStorage. No cart records in the database.
 - **Images:** next/image with Sanity's CDN
@@ -114,7 +114,7 @@ Every phase file must carry a `Visual reference:` line pointing at the exact `sc
 Established in `infra/01-design-system-setup` (the first phase built):
 
 - **Tailwind v4 is CSS-first.** There is no `tailwind.config.ts`/`.js` — the six color tokens, typography scale, and spacing scale live in a single `@theme` block in `app/globals.css`. Do not create a JS/TS Tailwind config; do not scatter tokens across multiple CSS files.
-- **Font variables:** `next/font/google` loaders use `variable: '--font-eb-garamond'` and `variable: '--font-plus-jakarta-sans'` in `app/layout.tsx`; the `@theme` block maps these to `--font-heading`/`--font-body`, which back the `font-heading`/`font-body` utilities. Both fonts load with `subsets: ['latin']`, `display: 'swap'`, and an explicit weight list only (EB Garamond: `500`; Plus Jakarta Sans: `400, 600, 700`) — never load a full font family.
+- **Font variables:** `next/font/google` loaders use `variable: '--font-eb-garamond'` and `variable: '--font-plus-jakarta-sans'` in `app/(storefront)/layout.tsx` (moved here from `app/layout.tsx` during `infra/02` — see below); the `@theme` block maps these to `--font-heading`/`--font-body`, which back the `font-heading`/`font-body` utilities. Both fonts load with `subsets: ['latin']`, `display: 'swap'`, and an explicit weight list only (EB Garamond: `500`; Plus Jakarta Sans: `400, 600, 700`) — never load a full font family.
 - **Component locations are fixed:** shared layout pieces live in `components/layout/` (`Nav.tsx`, `Footer.tsx`, `MobileMenu.tsx`, `NavCartBadge.tsx`, `nav-links.ts`), shared primitives in `components/ui/` (`Button.tsx`, `ProductImage.tsx`). New shared components follow this same split — layout chrome vs. reusable UI primitives.
 - **`Button` is the only button.** Every CTA/action imports `components/ui/Button.tsx` (`variant="primary" | "secondary"`, optional `href` to render as a link) instead of styling a raw `<button>`.
 - **`ProductImage` is the only product-photo frame.** `components/ui/ProductImage.tsx` wraps `next/image` in the blush/sharp-corner/no-shadow frame — any page rendering product photography uses it instead of inventing its own wrapper.
@@ -122,6 +122,18 @@ Established in `infra/01-design-system-setup` (the first phase built):
 - **Named spacing tokens, not raw arbitrary values:** `gutter`, `margin-mobile`/`margin-desktop`, `section-mobile`/`section-desktop` (from `stitch/DESIGN.md`'s scale) are defined once in `@theme` and used via `p-*`/`gap-*`/`m-*` utilities (e.g. `px-margin-mobile md:px-margin-desktop`). Do not hand-write pixel/rem spacing values in page components.
 - **No icon library.** Hamburger/search/bag/WhatsApp icons are small inline SVGs (thin 1.5px stroke) — do not add `react-icons`, `lucide-react`, etc.
 - **Repo hygiene fixed in this phase:** `.next/` and `node_modules/` were accidentally committed in the initial scaffold and are now untracked and gitignored, along with `.env*.local`, `next-env.d.ts`, and `.vercel`.
+
+Established in `infra/02-data-layer-setup`:
+
+- **Multiple root layouts.** The app has two independent roots: `app/(storefront)/layout.tsx` (the original root — announcement bar, `Nav`, `Footer`, fonts) and `app/(studio)/layout.tsx` (bare `<html>`/`<body>`, nothing else). A single shared root layout can't let a child route opt out of what it renders, so this was the only way to make `/studio` genuinely standalone. Any future route needing different top-level chrome follows this same pattern rather than adding conditionals to an existing root layout.
+- **Never import `sanity.config.ts` from a Server Component.** Turbopack traces a Server Component's whole import graph for RSC bundling, and `sanity`'s internal code imports a client-only `swr` hook that breaks under that trace. `components/studio/StudioClient.tsx` (`'use client'`) is the only place that imports it.
+- **Prisma 7 requires a driver adapter — there is no adapter-free `PrismaClient` for Postgres.** `lib/prisma.ts` uses `@prisma/adapter-pg` + `pg` (the standard adapter — not `@prisma/adapter-neon`, which is Neon's specialized edge/WebSocket driver and is not used here). `new PrismaClient()` with no adapter throws.
+- **Connection URLs live in `prisma.config.ts`, not `schema.prisma`.** `schema.prisma`'s `datasource db` block only declares `provider = "postgresql"`. The pooled/direct split: `prisma.config.ts`'s `datasource.url` reads `DIRECT_URL` (CLI/migrations only), `lib/prisma.ts`'s adapter reads `DATABASE_URL` (pooled, app runtime).
+- **Standalone scripts must load `.env.local` themselves.** Next's `dev`/`build`/`start` auto-load it; nothing else does. `prisma.config.ts` and `scripts/seed.ts` both call dotenv's `config({ path: ".env.local" })` explicitly — plain `import "dotenv/config"` only loads `.env`, which this project doesn't have.
+- **Sanity has two datasets: `development` and `production`.** Sample/seed content (`scripts/seed.ts`) only ever targets `development` — the script hard-refuses to run against anything else. Local dev points `NEXT_PUBLIC_SANITY_DATASET` at `development`; going live means pointing it at `production` (which starts empty and is populated by the real store owners in Studio, not by the seed script).
+- **Order numbers are `ZR-YYMMDD-XXXX`** (e.g. `ZR-260803-K7QF`), generated by `lib/orders.ts`'s `generateOrderNumber()` *before* insert — not derived from the database id, so it never reveals total order count. The `orderNumber` column has a unique constraint; callers must catch a collision and retry (up to 3 times) rather than assume uniqueness.
+- **Sanity ISR window is fixed at 60 seconds** across every query in `lib/sanity/queries.ts` — don't vary this per query or per page.
+- **`prisma init` also installs AI-agent skill docs** (`.claude/skills/`, `.agents/skills/`, `.windsurf/skills/`, `skills-lock.json` — ~90 files, three copies of the same Prisma reference docs). These are gitignored, not committed — they're useful locally but not app code, and the duplication across three tool-specific dirs would dominate any diff that touched them.
 
 ---
 
