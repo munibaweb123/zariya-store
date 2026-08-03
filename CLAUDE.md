@@ -179,6 +179,15 @@ Established in `frontend/05-cart-page`:
 - **Cart line totals display `price * quantity` (a line total), not the unit price.** Matches standard e-commerce expectation and confirms visually that changing quantity changed the cost.
 - **Pages with no server data still follow the hydration-gate pattern from `frontend/03`**: before `useCart().hasHydrated` is true, `/cart` renders the same empty view the server saw, accepting a brief empty-state flash on a reload with a non-empty cart rather than risking a hydration mismatch. Any future all-client page reading cart/localStorage state should do the same.
 
+Established in `frontend/06-checkout-page`:
+
+- **`zod` is now a project dependency** — the first validation library any frontend phase has introduced (every prior form-shaped decision, like dropdowns/steppers/accordions, was hand-built with no new package). `lib/checkout/schema.ts` is the one Zod schema for the checkout form; it deliberately has no `province` field.
+- **Province is derived server-side from the selected city, never a form field** — see the corrected Constraints line above. `lib/checkout/cities.ts` is the one city→province lookup (~27 major Pakistani cities); a later phase needing address data should extend this list rather than reintroducing a Province select.
+- **A Server Action never trusts client-supplied money figures.** `createOrder` (`app/(storefront)/checkout/actions.ts`) recomputes `subtotal`/`deliveryCharge`/`total` from the submitted `items` array via `lib/delivery.ts`, ignoring any client-sent totals — verified directly by injecting a tampered `province` form field and confirming it's structurally ignored. This is the pattern any future money-touching Server Action should follow: recompute from raw inputs, don't trust derived numbers crossing the client/server boundary.
+- **Order-number collision retry (up to 3 attempts, per `infra/02`) is real, tested code, not just documented intent** — verified by deterministically forcing `Math.random` to reproduce a pre-seeded `orderNumber` and confirming the retry succeeds with a different one.
+- **`server-only` is a build-time-only guard with no runtime check** — discovered while testing `createOrder` directly in Node: the package's `index.js` unconditionally throws; Next's bundler is what swaps it for an empty module server-side, and that swap doesn't exist outside Next's own build. Testing any code that transitively imports `lib/prisma.ts`/`lib/orders.ts` (or anything else marked `server-only`) outside the Next runtime requires temporarily neutralizing that one `node_modules` file for the test run and restoring it immediately after (diff-verified) — this is not a project code change, just a test-harness technique worth remembering for future phases that touch server-only modules.
+- **The cart is deliberately not cleared at checkout** — `createOrder` redirects to `/order/<orderNumber>` on success without touching `lib/cart/`; `clearCart()` is `frontend/07`'s job once the confirmation page actually renders.
+
 ---
 
 ## Constraints
