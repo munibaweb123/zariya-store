@@ -135,6 +135,15 @@ Established in `infra/02-data-layer-setup`:
 - **Sanity ISR window is fixed at 60 seconds** across every query in `lib/sanity/queries.ts` — don't vary this per query or per page.
 - **`prisma init` also installs AI-agent skill docs** (`.claude/skills/`, `.agents/skills/`, `.windsurf/skills/`, `skills-lock.json` — ~90 files, three copies of the same Prisma reference docs). These are gitignored, not committed — they're useful locally but not app code, and the duplication across three tool-specific dirs would dominate any diff that touched them.
 
+Established in `frontend/01-home-page`:
+
+- **`components/home/` vs `components/ui/`.** Page-specific composition (`Hero.tsx`, `InstagramStrip.tsx` — not reused elsewhere) lives in `components/home/`; shared, reusable primitives (`ProductCard.tsx`, `SectionHeading.tsx`, `CategoryTile.tsx`, `TrustStrip.tsx`) live in `components/ui/` alongside `infra/01`'s `Button`/`ProductImage`. Later phases import the `ui/` set rather than redefining equivalents; a page's own one-off sections go in its own `components/<page>/` directory instead.
+- **`lib/sanity/image.ts`'s `urlForImage` is the one Sanity-image-to-URL bridge.** `ProductImage` (from `infra/01`) takes a plain `src: string`, but Sanity returns image reference objects — `urlForImage` (wrapping the already-installed `@sanity/image-url`) converts one to the other and is `server-only`. Any component rendering a Sanity image imports this rather than instantiating its own `imageUrlBuilder`.
+- **`lib/format.ts`'s `formatPrice` is the one price-formatting primitive.** Every later phase displaying a price (cart lines, order summary, confirmation) imports it instead of writing its own `"Rs. "` string concatenation. Price *presentation* (which price is primary, strikethrough, `SALE` badge) is a separate decision owned by `ProductCard`, not by `formatPrice` itself.
+- **Query consolidation pattern for multi-item static content.** `listCategoryPreviews()` (added to `lib/sanity/queries.ts`) returns all four category tiles' preview products in a single GROQ round trip (one query with four keyed sub-queries) rather than four separate `listProductsByCategory` calls. Any future page needing several small, similarly-shaped Sanity results should follow this shape instead of issuing one fetch per item.
+- **Category tile and product-card imagery are documented placeholders, not schema-driven features.** Tile images derive from the most recent product in that category (`listCategoryPreviews`); there's no dedicated category-hero-image field yet. A future phase adding real category photography replaces this rather than assuming today's behavior is intentional.
+- **"Sale" and "New" badges are presentation-only, never stored fields.** `ProductCard` computes `onSale` from `salePrice != null && salePrice < price` at render time; `highlightNew` is a boolean the *calling page* passes in (e.g. the first `New Arrivals` result), not a Sanity field. Do not add a `isNew`/`isOnSale` field to the product schema to replace this.
+
 ---
 
 ## Constraints
