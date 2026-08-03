@@ -84,3 +84,26 @@ export async function listCategoryPreviews(): Promise<CategoryPreviews> {
   }`;
   return sanityFetch<CategoryPreviews>(query);
 }
+
+// Added by frontend/02: the category listing page's one query, covering both
+// a single category and the special "all" slug (no category filter), with
+// four sort orders. Price sorts use the effective price (salePrice when set
+// and lower than price, else price) via coalesce() so a discounted item
+// sorts by what the customer actually pays, not its original price.
+export type SortOption = "featured" | "newest" | "price-asc" | "price-desc";
+
+const SORT_CLAUSES: Record<SortOption, string> = {
+  featured: "featured desc, _createdAt desc",
+  newest: "_createdAt desc",
+  "price-asc": "coalesce(salePrice, price) asc",
+  "price-desc": "coalesce(salePrice, price) desc",
+};
+
+export async function listCategoryProducts(
+  category: Category | "all",
+  sort: SortOption = "featured",
+): Promise<Product[]> {
+  const categoryFilter = category === "all" ? "" : "&& category == $category";
+  const query = groq`*[_type == "product" ${categoryFilter}] | order(${SORT_CLAUSES[sort]}) ${PRODUCT_PROJECTION}`;
+  return sanityFetch<Product[]>(query, category === "all" ? {} : { category });
+}
