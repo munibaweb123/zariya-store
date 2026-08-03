@@ -6,6 +6,13 @@
 .env.*
 !.env.example
 
+# Next.js
+.next/
+node_modules/
+.env*.local
+next-env.d.ts
+.vercel
+
 # OS
 .DS_Store
 Thumbs.db
