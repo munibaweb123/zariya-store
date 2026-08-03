@@ -16,8 +16,8 @@ Branch naming convention: `<type>/<area>/<name>`. All branches below are `featur
 | 01 | `feature/frontend/home-page` | `.speccraft/phases/frontend/01-home-page.md` | infra/01, infra/02 | ✅ Complete — merged to develop |
 | 02 | `feature/frontend/category-listing-page` | `.speccraft/phases/frontend/02-category-listing-page.md` | infra/01, infra/02, frontend/01 | ✅ Complete — merged to develop |
 | 03 | `feature/frontend/cart-state` | `.speccraft/phases/frontend/03-cart-state.md` | infra/01 | ✅ Complete — merged to develop |
-| 04 | `feature/frontend/product-detail-page` | `.speccraft/phases/frontend/04-product-detail-page.md` | infra/01, infra/02, frontend/01, frontend/03 | Ready (stub only — needs `/sc.plan` detailing) |
-| 05 | `feature/frontend/cart-page` | `.speccraft/phases/frontend/05-cart-page.md` | frontend/03, frontend/04 | Blocked |
+| 04 | `feature/frontend/product-detail-page` | `.speccraft/phases/frontend/04-product-detail-page.md` | infra/01, infra/02, frontend/01, frontend/03 | ✅ Complete — merged to develop |
+| 05 | `feature/frontend/cart-page` | `.speccraft/phases/frontend/05-cart-page.md` | frontend/03, frontend/04 | Ready (stub only — needs `/sc.plan` detailing) |
 | 06 | `feature/frontend/checkout-page` | `.speccraft/phases/frontend/06-checkout-page.md` | infra/02, frontend/03, frontend/05 | Blocked |
 | 07 | `feature/frontend/order-confirmation-page` | `.speccraft/phases/frontend/07-order-confirmation-page.md` | infra/02, frontend/04, frontend/06 | Blocked |
 | 08 | `feature/frontend/our-story-page` | `.speccraft/phases/frontend/08-our-story-page.md` | infra/01 | Ready (stub only — needs `/sc.plan` detailing) |
