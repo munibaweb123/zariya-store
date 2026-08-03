@@ -21,3 +21,12 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+/lib/generated/prisma
+
+# AI-tool skill docs auto-installed by `prisma init` (duplicated across three
+# tool-specific dirs, ~90 files of reference documentation, not app code)
+.agents/skills/
+.claude/skills/
+.windsurf/skills/
+skills-lock.json

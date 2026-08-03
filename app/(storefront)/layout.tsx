@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 
