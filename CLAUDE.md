@@ -172,6 +172,13 @@ Established in `frontend/04-product-detail-page`:
 - **`QuantityStepper` (`components/ui/QuantityStepper.tsx`) is a plain controlled component with no `'use client'` directive of its own** — it defines `onClick` handlers directly, which is only safe because every current consumer (`PurchaseActions`) is itself a Client Component; a file only needs its own `'use client'` marker when a Server Component might import it directly. Confirmed working via `jsdom`, not just by inspection.
 - **`getProductBySlug` and `listProductsByCategory` (both defined in `infra/02`, unused until now) are this phase's only Sanity queries** — no new `lib/sanity/queries.ts` export was needed for a product-detail page, unlike every prior frontend phase.
 
+Established in `frontend/05-cart-page`:
+
+- **`lib/delivery.ts`'s `calculateDeliveryCharge(subtotal)` is the one shared delivery-charge function** (flat `Rs. 250`, free at `subtotal >= 3000`). It's a pure function of a number, deliberately decoupled from `lib/cart/` so `frontend/06`'s checkout can call it with its own computed subtotal, not only the cart store's — import it there rather than reimplementing the threshold.
+- **A whole page can legitimately be `'use client'` when it has zero server data** — `/cart` is the first page in the project built this way (every prior page fetched from Sanity). The test isn't "does this page use client state" but "would a Server-Component-shell/Client-Component-child split actually move meaningful code out of the client bundle" — here it wouldn't, so the split wasn't done. Apply the same test before defaulting to a server shell on a future all-client page.
+- **Cart line totals display `price * quantity` (a line total), not the unit price.** Matches standard e-commerce expectation and confirms visually that changing quantity changed the cost.
+- **Pages with no server data still follow the hydration-gate pattern from `frontend/03`**: before `useCart().hasHydrated` is true, `/cart` renders the same empty view the server saw, accepting a brief empty-state flash on a reload with a non-empty cart rather than risking a hydration mismatch. Any future all-client page reading cart/localStorage state should do the same.
+
 ---
 
 ## Constraints
