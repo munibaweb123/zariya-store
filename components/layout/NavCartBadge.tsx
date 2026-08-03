@@ -1,17 +1,21 @@
 "use client";
 
 import Link from "next/link";
-
-type NavCartBadgeProps = {
-  count?: number;
-};
+import { useCart } from "@/lib/cart/useCart";
 
 /**
  * Contract with frontend/03-cart-state: this file is the only thing that
  * phase touches to wire in the live cart count. Nav.tsx itself is never
  * modified — it just renders <NavCartBadge /> with no props today.
+ *
+ * Before hydration completes, count reads as 0 so the server-rendered
+ * output and the first client render match exactly — no hydration
+ * mismatch warning, just a brief (correct) 0 until localStorage loads.
  */
-export function NavCartBadge({ count = 0 }: NavCartBadgeProps) {
+export function NavCartBadge() {
+  const { totalItems, hasHydrated } = useCart();
+  const count = hasHydrated ? totalItems : 0;
+
   return (
     <Link
       href="/cart"
