@@ -20,7 +20,7 @@ Branch naming convention: `<type>/<area>/<name>`. All branches below are `featur
 | 05 | `feature/frontend/cart-page` | `.speccraft/phases/frontend/05-cart-page.md` | frontend/03, frontend/04 | ✅ Complete — merged to develop |
 | 06 | `feature/frontend/checkout-page` | `.speccraft/phases/frontend/06-checkout-page.md` | infra/02, frontend/03, frontend/05 | ✅ Complete — merged to develop |
 | 07 | `feature/frontend/order-confirmation-page` | `.speccraft/phases/frontend/07-order-confirmation-page.md` | infra/02, frontend/04, frontend/06 | ✅ Complete — merged to develop |
-| 08 | `feature/frontend/our-story-page` | `.speccraft/phases/frontend/08-our-story-page.md` | infra/01 | Ready (stub only — needs `/sc.plan` detailing) |
+| 08 | `feature/frontend/our-story-page` | `.speccraft/phases/frontend/08-our-story-page.md` | infra/01 | ✅ Complete — merged to develop |
 
 ## Build order
 

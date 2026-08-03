@@ -196,6 +196,13 @@ Established in `frontend/07-order-confirmation-page`:
 - **`OrderItemSnapshot` (the `Order.items` JSON shape) has no image field** — the confirmation page's line items are text-only (name/qty/price) by necessity, not by choice. If a future phase wants product thumbnails on the confirmation page, that requires widening `OrderItemSnapshot` in `lib/orders.ts` (an `infra/02`-owned file) and re-checking out `frontend/06`'s cart-item-to-order-snapshot mapping — it can't be added at the confirmation-page layer alone.
 - **Recorded, deliberate privacy tradeoff: order confirmation pages are reachable by a guessable `ZR-YYMMDD-XXXX` URL with no auth**, exposing order number/items/total/delivery address (not phone, not payment details) to anyone with the link — the standard guest-checkout pattern for a no-accounts site. If this judgment ever needs revisiting, the fix is widening `CODE_LENGTH` in `lib/orders.ts`, not adding authentication.
 
+Established in `frontend/08-our-story-page`:
+
+- **All eight phases are now complete** — `infra/01`, `infra/02`, and all seven storefront pages (`frontend/01`–`08`). Every page in CLAUDE.md's Pages list exists and is reachable.
+- **A page nobody can navigate to isn't finished — check reachability as part of a phase's own scope, not an afterthought.** `/our-story` needed a real Footer link added before it counted as done; the fix was one `<li><a>` appended to the Shop column's existing link list (`Footer.tsx`'s only diff), leaving `NAV_LINKS` and the Help column's rendering untouched.
+- **Marketing/brand copy gets the same factual scrutiny as code.** When adapting a design mockup's placeholder copy into real page content, narrative/sentiment language ("founded by two friends," "we celebrate traditional technique") is fine to state as-is, but specific unconfirmed claims (a stated wage policy, a named artisan-partnership program, an award, a founding year) are not — check any such copy against what CLAUDE.md actually confirms before shipping it, and mark unconfirmed specifics with a code comment for the store owners to replace rather than silently asserting them.
+- **`TrustStrip` is not a general-purpose "3-column icon+label" primitive** — it's a fixed, prop-less component with exactly its own 3 hardcoded items (established in `frontend/01`). A visually similar but content-different 3-column section (different icons, labels, and — critically — a full description paragraph per item, which `TrustStrip` has no room for) is separate markup, not a reuse of it. Don't assume visual similarity implies the same component applies.
+
 ---
 
 ## Constraints
