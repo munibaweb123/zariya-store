@@ -28,6 +28,11 @@ export function Footer() {
                 </a>
               </li>
             ))}
+            <li>
+              <a href="/our-story" className="text-body-md text-white/90">
+                Our Story
+              </a>
+            </li>
           </ul>
         </div>
 
