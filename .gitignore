@@ -1,41 +1,32 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# SpecCraft
+.claude/settings.local.json
+.claude/worktrees/
+.speccraft/history/
+.env
+.env.*
+!.env.example
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
+# Next.js
+.next/
+node_modules/
+.env*.local
+next-env.d.ts
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+/lib/generated/prisma
+
+# AI-tool skill docs auto-installed by `prisma init` (duplicated across three
+# tool-specific dirs, ~90 files of reference documentation, not app code)
+.agents/skills/
+.claude/skills/
+.windsurf/skills/
+skills-lock.json

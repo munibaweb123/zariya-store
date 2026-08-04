@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZARIYA | Premium Pakistani Heritage</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=EB+Garamond:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#887175",
+                    "surface": "#fcf9f8",
+                    "on-primary-fixed-variant": "#81233f",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#666465",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#ff8aa4",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#494648",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#1c1b1c",
+                    "on-primary-fixed": "#3f0016",
+                    "on-surface": "#1b1c1c",
+                    "secondary": "#605e5f",
+                    "primary-fixed-dim": "#ffb1c0",
+                    "tertiary-container": "#444143",
+                    "surface-container-low": "#f6f3f2",
+                    "background": "#fcf9f8",
+                    "on-secondary-fixed-variant": "#484647",
+                    "outline-variant": "#dbc0c4",
+                    "surface-container-highest": "#e4e2e1",
+                    "inverse-on-surface": "#f3f0f0",
+                    "primary-fixed": "#ffd9df",
+                    "surface-variant": "#e4e2e1",
+                    "primary-container": "#7a1e3a",
+                    "surface-dim": "#dcd9d9",
+                    "surface-bright": "#fcf9f8",
+                    "on-surface-variant": "#554245",
+                    "surface-tint": "#a03b56",
+                    "on-tertiary-container": "#b3adaf",
+                    "primary": "#5c0325",
+                    "secondary-fixed": "#e6e1e2",
+                    "on-tertiary-fixed": "#1d1b1c",
+                    "tertiary": "#2e2b2d",
+                    "inverse-primary": "#ffb1c0",
+                    "surface-container": "#f0eded",
+                    "tertiary-fixed": "#e8e1e3",
+                    "on-background": "#1b1c1c",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#cac5c6",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#303030",
+                    "tertiary-fixed-dim": "#cbc5c7",
+                    "surface-container-high": "#eae7e7",
+                    "secondary-container": "#e6e1e2",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "2px",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-gap-desktop": "80px",
+                    "gutter": "16px",
+                    "base": "8px",
+                    "grid-margin-desktop": "40px",
+                    "section-gap-mobile": "48px",
+                    "grid-margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Plus Jakarta Sans"],
+                    "title-sm": ["Plus Jakarta Sans"],
+                    "headline-md": ["EB Garamond"],
+                    "label-caps": ["Plus Jakarta Sans"],
+                    "display-lg-mobile": ["EB Garamond"],
+                    "price-tag": ["Plus Jakarta Sans"],
+                    "display-lg": ["EB Garamond"],
+                    "headline-md-mobile": ["EB Garamond"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "title-sm": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "price-tag": ["16px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                    "headline-md-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body { background-color: #FFFFFF; color: #1b1c1c; overflow-x: hidden; }
+        .border-hairline { border-color: #EDE6E8; }
+        .blush-bg { background-color: #F8F3F4; }
+        .maroon-accent { color: #7A1E3A; }
+        .maroon-bg { background-color: #7A1E3A; }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased">
+<!-- Announcement Bar -->
+<div class="maroon-bg text-white py-2 px-grid-margin-mobile md:px-grid-margin-desktop text-center">
+<p class="font-label-caps text-[10px] md:text-label-caps uppercase tracking-widest">
+            Free delivery on orders above Rs. 3,000 | Cash on Delivery available
+        </p>
+</div>
+<!-- Header (TopAppBar from Shared Components) -->
+<header class="bg-surface dark:bg-surface-dim sticky top-0 z-50 border-b border-outline-variant dark:border-outline">
+<nav class="flex justify-between items-center w-full px-grid-margin-mobile md:px-grid-margin-desktop py-4 max-w-7xl mx-auto">
+<!-- Brand Identity (Left as per layout structure) -->
+<div class="flex items-center">
+<a class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim tracking-tighter" href="#">ZARIYA</a>
+</div>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-caps text-label-caps text-primary font-bold border-b-2 border-primary pb-1" href="#">Dresses</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Perfumes</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Beauty</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Jewellery</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Sale</a>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<button class="text-on-surface hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="relative text-on-surface hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 -right-1 maroon-bg text-white text-[8px] font-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>
+</button>
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full h-[870px] flex flex-col md:flex-row items-center overflow-hidden">
+<div class="w-full md:w-1/2 h-1/2 md:h-full blush-bg flex items-center justify-center px-grid-margin-mobile md:px-grid-margin-desktop py-12 order-2 md:order-1">
+<div class="max-w-xl">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight">New Eid Collection</h1>
+<p class="font-body-md text-body-md text-secondary mb-8 leading-relaxed">
+                    Embrace the essence of tradition with our curated selection of ethereal silhouettes, intricate hand-embroidery, and timeless Pakistani craftsmanship designed for your most celebrated moments.
+                </p>
+<a class="maroon-bg text-white px-10 py-4 font-label-caps text-label-caps uppercase tracking-widest inline-block hover:opacity-90 transition-opacity rounded-[2px] active:scale-95 duration-150" href="#">
+                    Shop collection
+                </a>
+</div>
+</div>
+<div class="w-full md:w-1/2 h-1/2 md:h-full order-1 md:order-2 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A high-fashion editorial photograph of a Pakistani model wearing an elegant, flowing maroon silk dress with gold zari embroidery. She is standing gracefully in a minimalist light-filled courtyard with blush pink stone walls. The lighting is soft and golden, creating a premium and luxurious atmosphere consistent with Pakistani heritage aesthetics. The shot is a full-body lifestyle image emphasizing the drape and fabric quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyEflcvfJZjR5aTHZUvC9iKHp7N93eDSa1rl7vNmDoZnQkuexf8C7PIHgTw56vxIf2ra3eZG2YG9hoUC8FbL9NjFDAoxcgP8wwcUscfhu-ipsuEM0iLZ0N8otCPAXcAfGXiNxcA4Kjq20myDwcpIjKtQSXiZOdwKCvXDOSBMR933yUE6DvugPg_hioe4drYmLcNWt2vx5RjEmHsn1NWlG1W5x8jXmS4yCHbXcZlqMPRMV5LHMshAHq"/>
+</div>
+</section>
+<!-- Category Grid -->
+<section class="px-grid-margin-mobile md:px-grid-margin-desktop py-section-gap-mobile md:py-section-gap-desktop max-w-7xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Dresses -->
+<a class="group block text-center" href="#">
+<div class="aspect-[3/4] mb-4 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of high-quality Pakistani fashion fabric with intricate embroidery, draped beautifully on a minimalist mannequin. The lighting is soft and high-key, highlighting textures of luxury lawn and silk. Soft blush background tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCta3SbMfpbFqZ5N2PN78bFuEwY-AmG1UthZoLXaKgbox2Swrtc2CEkf-SL80z3N3lAzG5WFS5zy7wuDdosNkJbehfggE20MBgfHNvbPhWdnYay13OvrVHh6gQdiaovvZGqS5nMu5YpylwDRET4FyarlT9PODf85MJEtkblb15_1RZCsP38Gh0mF2CRcE8nCmJvkLGHZUKXBwvAnK0aOjd-lK82YWVgijVFjsDrSec-ZNXdAOM4Iszr"/>
+</div>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface">Dresses</span>
+</a>
+<!-- Perfumes -->
+<a class="group block text-center" href="#">
+<div class="aspect-[3/4] mb-4 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A luxury perfume bottle with minimalist gold cap sitting on a clean, light surface with a soft rose shadow. The aesthetic is clean, premium and modern, reflecting the heritage branding of Zariya. Elegant charcoal and blush palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQitDadr6kANjUhwmog1ZgeeHG4xSduKNm15vv9lnwsM7566CmJiJv0lLiTuogNtVojpYFO7Vf0oGYhJvArxOi5uoGq_wtctO1qdOiEhOY4pQjAcww7rUAFkYoUWZ7olBnxsia97ofZ7o8PP9GZ93U9GHbm1tKtp7_ZIvOmagJ0GU9T5iTYbhT1v-u7IkLTaIa8_4YoYS-rIOcKTSzF1vls79sG0zgWgfuuW79QAycSJerp7ny3kAW"/>
+</div>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface">Perfumes</span>
+</a>
+<!-- Beauty -->
+<a class="group block text-center" href="#">
+<div class="aspect-[3/4] mb-4 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of premium organic beauty products with minimalist charcoal labels on a light textured surface. Soft organic lighting and neutral tones creating a serene, sophisticated brand identity for Pakistani beauty rituals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApdGR0B28rP-Bf7fBQGbe9ZxJig5ETp9wWXiadEtNQ6iUENfPCWB3dgOi4nZx6V_F0Rt3lRl1q72bCwidokJsDvx8rMfCmAUYl5-Wm0NdBMd0HQQEAMtn8oNbwT5_GsalEsA2txgmzYOy9z5ACJ9HquKGKVD33LBFPXSF03QYzzfpG4-7OaQ1mI8pplvr1h4f1Z5zS1dtoLCyhJ2YwPh7kBSPSN4rGnNlawDDXY1ayKb3JVGVUR1td"/>
+</div>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface">Beauty</span>
+</a>
+<!-- Jewellery -->
+<a class="group block text-center" href="#">
+<div class="aspect-[3/4] mb-4 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Elegant traditional gold Pakistani jewellery, including a jhumka earring, resting on a blush pink fabric. The lighting is focused and warm, showcasing the intricate craft and gold shine against the matte background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL3x1rd3ts-X5S-cnpkb4xagkIqVYQwtaBV4FppbEXCo5CG6foZ4YqlixQATRw5uAXCs7fQy7AlB5j0Zz5rHVTPEwucAWIkqCg8IL115sfZiKv39jluk58lyJQSm_6ubqe0sDm0BU4E0PJR56Fl_2dNR3Bvrp2-RUWiZLEzOZdrA9BfXanjNYREHIK3E4TK4rxNUVW6lNVbu7mnctmD7ylRnTzUDhbTyCeZcesvKXkpFtEgrIA2cjg"/>
+</div>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface">Jewellery</span>
+</a>
+</div>
+</section>
+<!-- Bestsellers Section -->
+<section class="px-grid-margin-mobile md:px-grid-margin-desktop py-section-gap-mobile md:py-section-gap-desktop bg-surface-container-low/30">
+<div class="max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-12">
+<h2 class="font-headline-md text-headline-md text-on-surface">Bestsellers</h2>
+<a class="font-label-caps text-label-caps border-b border-on-surface pb-1 mb-1" href="#">View All</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Card 1 (Sale) -->
+<div class="group relative">
+<div class="aspect-[3/4] blush-bg mb-4 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A premium embroidered lawn suit in ivory with delicate floral threadwork, displayed against a soft blush background. Minimalist framing and high-resolution focus on the textile artistry of Pakistani heritage wear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpDoJ19nxTzthBNP0HJ_pRoLHIoad04pgHCSWWncqlBv8A9UgImeUGLB_pc1b2FbWkh3gO-nlLySXfiB_9WQVQZS90GEes8XxTrg2DvfyirPzeOSzQVXEqdtcV4goQ6VnrcZPAD7Mzlzrhsb5huEbv_SNzGuF65IfiZVuPsXMR6rEZ5oCvwrzWHMgUzVXlSFkNKoFEBwnKPbX9LhLfZ2VmorT_L0wK6GBRg-2_g4eBocIfMCf3HqIc"/>
+<span class="absolute top-3 left-3 maroon-bg text-white px-2 py-1 font-label-caps text-[10px] tracking-tight rounded-[2px]">SALE</span>
+<button class="absolute bottom-4 right-4 bg-white/90 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
+</button>
+</div>
+<h3 class="font-title-sm text-title-sm text-[#2B2B2B] mb-1">Ethereal Bloom Set</h3>
+<div class="flex gap-2">
+<p class="font-price-tag text-price-tag maroon-accent">Rs. 8,500</p>
+<p class="font-price-tag text-price-tag text-on-surface-variant line-through opacity-50">Rs. 10,500</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative">
+<div class="aspect-[3/4] blush-bg mb-4 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Elegant charcoal colored formal kurta with minimalist embroidery on the collar and sleeves, presented in a clean studio setting with high-key lighting. Sophisticated aesthetic suitable for premium Pakistani retail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXTVkHF_SNY2vyFUm43mSgMv_gYOrx8hID3a2_z3vIdJTp2labnS1LWt6ojQYIxKCjyUIP-gbeX8tZrMjVrIuOzKSzuITjeKcVmZLJingcG0spBflZGFjjI6TXqElyBRSCecZs8kacZZSl6ALoguQLYfasic4MtCmMFLGpPLo_I8_8cpQiwa9BzPcKDHnah8UCXFXso16g7QL_PvMVI8I3nBGxbHfIW0069LVHXp9Prj2nCbxpKLnv"/>
+<button class="absolute bottom-4 right-4 bg-white/90 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
+</button>
+</div>
+<h3 class="font-title-sm text-title-sm text-[#2B2B2B] mb-1">Midnight Dusk Kurta</h3>
+<p class="font-price-tag text-price-tag maroon-accent">Rs. 6,200</p>
+</div>
+<!-- Card 3 -->
+<div class="group relative">
+<div class="aspect-[3/4] blush-bg mb-4 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A portrait of a minimalist perfume bottle called 'Oud Heritage' resting on a slab of marble. The scene is illuminated by soft daylight, reflecting a high-end, contemporary luxury brand identity from Pakistan." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1p-F7hfbZhm1mONvMn1-dW1HBr4lFQhJ6JBDFVth9JqwdgSEf03a8yFCQ0O51NiKt8C8W8zxMaQR8J-NZyvrDsIaCSBnBMmhM0fLN90ployomhd1Omu67Lbn4NloWQJDz5UHuIjTmgbJ7AhVuwHgUJXT0QW2560mRMUb3YwJGWqtJfcq4DPCSD3UvOkNBDvZpfV7Ar6_aXqCXkCrsFyr14sOI4JVOPyhLKSBdAy_29MEX-Gx2yLJ-"/>
+<button class="absolute bottom-4 right-4 bg-white/90 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
+</button>
+</div>
+<h3 class="font-title-sm text-title-sm text-[#2B2B2B] mb-1">Oud Heritage Extrait</h3>
+<p class="font-price-tag text-price-tag maroon-accent">Rs. 12,400</p>
+</div>
+<!-- Card 4 -->
+<div class="group relative">
+<div class="aspect-[3/4] blush-bg mb-4 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Intricate silver-plated chandbali earrings with delicate pearls, arranged on a soft textured linen surface. The atmosphere is warm and elegant, emphasizing craftsmanship and cultural luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEZCXsmFYw68nkjAjgciUrA8rbvXSI7IxnjrSnXoX0iAJHe5uZ2C8dxnPBWOF1mlIajbd329r2QhgeHdUjHMLAMdlG9JNZTwW0TWKTXchZMaez7bkfBsHudxA3pYNtyRgNxc3AGDga1bMoVakBPrtC5-SZj__kjyYD8BQ2cGzILN5kV0o-uDxrawyUEQ56lMwf6-dTAbI91x8qC41iSNYREX9zxfLTmzloScqPGlnmXBQpm58Tg_sZ"/>
+<button class="absolute bottom-4 right-4 bg-white/90 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
+</button>
+</div>
+<h3 class="font-title-sm text-title-sm text-[#2B2B2B] mb-1">Pearl Moon Chandbalis</h3>
+<p class="font-price-tag text-price-tag maroon-accent">Rs. 4,800</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Promise Band -->
+<div class="blush-bg w-full py-12 border-y border-hairline">
+<div class="max-w-7xl mx-auto px-grid-margin-mobile md:px-grid-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined mb-4 text-primary" data-icon="verified">verified</span>
+<p class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface">Handpicked quality</p>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined mb-4 text-primary" data-icon="payments">payments</span>
+<p class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface">Cash on delivery</p>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined mb-4 text-primary" data-icon="local_shipping">local_shipping</span>
+<p class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface">Nationwide shipping</p>
+</div>
+</div>
+</div>
+<!-- New Arrivals Section -->
+<section class="px-grid-margin-mobile md:px-grid-margin-desktop py-section-gap-mobile md:py-section-gap-desktop max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-12">
+<h2 class="font-headline-md text-headline-md text-on-surface">New Arrivals</h2>
+<a class="font-label-caps text-label-caps border-b border-on-surface pb-1 mb-1" href="#">Explore More</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- New Card 1 -->
+<div class="group relative">
+<div class="aspect-[3/4] blush-bg mb-4 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Luxury chiffon dupatta in vibrant emerald green with gold border lace. Soft lighting emphasizes the transparency and flow of the high-end fabric against a neutral studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsfoKgKpeeIbG1-Bs8IV-Amd884cujMAWE8sGp2gkaU0rorqW9hJwdK09Lqo1VggIOhxftSy4ZRHwMAkDmlI_UIdxCEQuN_62wJDiGHRimBmKQNoRsXcRVRXiy4SlHcG7pajp7MAlTb4drWTCuAA2b0QqawFiN1YIF58_4ClcfpV146ToBtULYy9_0U56_OovTEWoU43Mky0qU-C3AMCbr1U12yos96WxS0V_Tgf9ftvC0624jPl6I"/>
+<span class="absolute top-3 left-3 bg-[#2B2B2B] text-white px-2 py-1 font-label-caps text-[10px] tracking-tight rounded-[2px]">NEW</span>
+</div>
+<h3 class="font-title-sm text-title-sm text-[#2B2B2B] mb-1">Emerald Grace Stole</h3>
+<p class="font-price-tag text-price-tag maroon-accent">Rs. 3,500</p>
+</div>
+<!-- New Card 2 -->
+<div class="group relative">
+<div class="aspect-[3/4] blush-bg mb-4 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Modern geometric jewelry set in rose gold, minimal and sleek for contemporary Pakistani women. Placed on a silk cushion with soft natural shadows. Premium minimalist photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxQc7k1LfSDkZktFxENHJDGkxiJem5O6AoABB1qr_wUKenHIQ0LlVrB26-ZbFm6KeFZY9v3uWhla6rtTo6F7XKW84jAU1QmReSIkNrBPuuNvNCp9eg9mfXhE3gtYwA7HxQBRUq-YV2Jb_C1TTuA_RVpexzUN-IGri0mkESpnMfoaLCZI16s9lONH8uirVvlUV7IQ5tFl3xx7JRrvJata6Piz5ozgCYBoaSzQ9X8zrm1Kxz8roBW_9o"/>
+</div>
+<h3 class="font-title-sm text-title-sm text-[#2B2B2B] mb-1">Linear Rose Set</h3>
+<p class="font-price-tag text-price-tag maroon-accent">Rs. 7,900</p>
+</div>
+<!-- New Card 3 -->
+<div class="group relative">
+<div class="aspect-[3/4] blush-bg mb-4 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A delicate organza shirt in soft lavender with silver gota work on the hemline and sleeves. The lighting is ethereal and bright, typical of high-end boutique fashion photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl_6Ti_P0hAM3RyTF4a2AFXHpDRosKXeJN6k4KjiHfAv55OlN8rDWChluvytQo6-4sUpvIcdfY9lyLXYBcCFpN7DQKOqVTfcvLr-OhkABOvBZp37qJzkL4-T-YC-NzAfDLNkICwWmlHq1tQDvmsdStVYEv_PdDxdDY2-4m7VKARyTPlS68vEqvkgQVuM--P04ovT8dWY3tWq2Rehd0wYr12Hj4bSgl0d00MzQgQLPr6DX3LF2jIgNc"/>
+</div>
+<h3 class="font-title-sm text-title-sm text-[#2B2B2B] mb-1">Lavender Haze Organza</h3>
+<p class="font-price-tag text-price-tag maroon-accent">Rs. 15,000</p>
+</div>
+<!-- New Card 4 -->
+<div class="group relative">
+<div class="aspect-[3/4] blush-bg mb-4 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Bottles of artisanal rose water and beauty oils in apothecary-style clear glass with minimalist branding. The setting is clean and high-key, emphasizing the purity and organic nature of the product." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrOqS-UKrZ9GpQ4-5yV6hzi_Bj517FS9rkx5yCb7t8ZwC_ZCK9Y48y2mnYaePesvh-1Wn2YebxRnV10eEM8Hm8XRpmT3JuzAHXqDYSIiiQU7ugBBckGmU9SiIVwgXWtN1dKRGTYGbyCX2JFhYSv-JP0dpEMXnqqlAvrxI4UEFS9ui-G59cTy9bJm5DIFsM-I1tGAp-OtMpZtgKSEp2J7HR9a_RElW7Jv1EJL3hES40BtPr6kUEFyAK"/>
+</div>
+<h3 class="font-title-sm text-title-sm text-[#2B2B2B] mb-1">Pure Rose Elixir</h3>
+<p class="font-price-tag text-price-tag maroon-accent">Rs. 2,800</p>
+</div>
+</div>
+</section>
+<!-- Instagram Strip -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-surface-container-low/20">
+<div class="max-w-7xl mx-auto px-grid-margin-mobile md:px-grid-margin-desktop text-center mb-10">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Follow us @zariya_heritage</h2>
+<p class="font-body-md text-on-surface-variant">Tag us to be featured in our lookbook</p>
+</div>
+<div class="grid grid-cols-3 md:grid-cols-6">
+<div class="aspect-square overflow-hidden border border-white">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" data-alt="Instagram thumbnail: Detail shot of a hand with henna and a gold ring, holding a cup of traditional chai. Soft, warm lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC12u1Wsvx-Rr4uVKqG7iAGQ_O9SKYulh8n5Sv7opHRyRUQ1-9n2StdXeI1bc_Mq25KwwxpZOVJrLdZ9RqD-BQca7l9Ikj6drC38SLzDbunZOYceXODFEsyCYh-nD3ya_bMmgZrNMZKsTWhEtBZpQmSzqdmsHWF_IuwxL-KJc6V9GCphDpyZxl3BEeUcagscaPrWPT3uIw2ADF8hRVLIhyYkGoJFQLC0d8GlAvjW96hcWCdpuafwlNw"/>
+</div>
+<div class="aspect-square overflow-hidden border border-white">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" data-alt="Instagram thumbnail: A model laughing in a sun-drenched garden, wearing a white embroidered dress. High-key and cheerful lifestyle aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGIDx9bXW5MTPeYMpPYfxxuUxS8fLrAeyFXuXNnuLXxrQ6OgEMC34ee896gR9d7-RXiK7Gbdt5vengr-ke3kG3eO5gYGAbzbT_CiCM8Le81rQywoG4lUKivDk8vVE3ZP9W84RYKRRjQhn8khOi4bWpX_sRVAs5NCr3pjUZYVJDUJ062zLS68bbek8vCi0aEqIoHK7zu0x_65Jg0Gl6uz2vRiJ3JLew_JAAwkaKDJ5so2-oZnLeasvg"/>
+</div>
+<div class="aspect-square overflow-hidden border border-white">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" data-alt="Instagram thumbnail: Close-up of intricate fabric details on a loom. Authentic craft storytelling image." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi9v0siGtJa_mLgfNiSNRzMH2klWyLwW9GlrY728xmoY38WaLn1UPRDTpRVfCcGL9JLba-cOPNCgYLkrWo2SdMrJtPclS2_aan6PfET2IhR6SUPXtgW8RjBzvbGBl95hjbJFP5lYnA1wLS4wOj7vY2RsIztSzsdh8FS6KDHGQIbbHsR_QL5XWNR_7mD3UGHnPoX1BfLKDZ1ASKvjHbE8Fc2x1Sl3sPuO3iGqbF3xjbdoWWWRJWDO48"/>
+</div>
+<div class="aspect-square overflow-hidden border border-white">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" data-alt="Instagram thumbnail: Flat lay of perfume, a book, and jasmine flowers on a marble surface. Moody and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi97wKfnzRySAY4KLxN3EmPAQLqXoawmUSqShRSOaQxIkDCD1k60YD81zuH1a_ejK6h0UdHm7RWIYr2PVy5RGxkluOQ5q9jn3FCv7Pjm15dmEaZxpWocZ1NGgJ2obgQh-K2kxRvRdZjXz1sBmEoMtqYhqgdVL91BhDRt0va3JqhSpBsBY_85U_ItOJJTGmERlCtNPsq7O9KL-gp-uk-UXv2Dm9YPNPYsRrE7tqutAXHJ_xg22ECDN4"/>
+</div>
+<div class="aspect-square overflow-hidden border border-white">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" data-alt="Instagram thumbnail: A customer wearing a Zariya outfit at a wedding, blurry festive lights in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSFca88lWpMUznsB32-Q0vtWyyhUPPdoYcmUInM9oEO6zWK0xlCqllCEtFzqPRe05iR5bMbdNNst_MwvyOZcyKgXYY9rlYgN4CVMoMaomQf_5mhlO2R-IgAz4onoS8TQSUgQA8ghoexIzemfQ-2x4tXyIgGlpzNLhSIeIChlilnwvvNBUWrbW9t-tQBO7B_0X7PRjHtQ9kQvKmFvtcaDPFtHbdNpDyW_39XwWHQ-gDDUUoBcfRfZKV"/>
+</div>
+<div class="aspect-square overflow-hidden border border-white">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" data-alt="Instagram thumbnail: Minimalist black and white shot of an archway in Lahore, Pakistan. Architectural heritage inspiration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxJmQHrmG0Ei2bBPEyrwhxaUZiEaAlGWIGWkDyiYuQtmeabwU4NTzl4UXWkkBgDgPEsRyL8U3Fn4eKOwdUphgncQUW8vuKquwcu7eQM5n7jlpfHpxDMDwUovQuZlEgCAQyZLiMnUlyPgIw3VrOxudeV06G8cSIDC6Usi6V2go05mXJM5Wx9SSquKucuorNOI6bFpJ3k_ihTtvUbSn5uqASY_yIKHv4NXOGWupk3tZwEUzQlRKwG02R"/>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-tertiary text-on-tertiary">
+<div class="w-full py-section-gap-desktop px-grid-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
+<!-- Shop Column -->
+<div>
+<h4 class="font-label-caps text-label-caps uppercase tracking-widest mb-6">Shop</h4>
+<ul class="space-y-3">
+<li><a class="font-body-md text-on-tertiary/80 hover:text-on-tertiary transition-colors" href="#">Dresses</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-on-tertiary transition-colors" href="#">Perfumes</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-on-tertiary transition-colors" href="#">Beauty</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-on-tertiary transition-colors" href="#">Jewellery</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-on-tertiary transition-colors" href="#">Sale</a></li>
+</ul>
+</div>
+<!-- Help & Policies Column -->
+<div>
+<h4 class="font-label-caps text-label-caps uppercase tracking-widest mb-6">Help</h4>
+<ul class="space-y-3">
+<li><a class="font-body-md text-on-tertiary/80 hover:text-on-tertiary transition-colors" href="#">Track Order</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-on-tertiary transition-colors" href="#">Shipping Policy</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-on-tertiary transition-colors" href="#">Returns &amp; Exchanges</a></li>
+<li><a class="font-body-md text-on-tertiary/80 hover:text-on-tertiary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<!-- Contact & Brand Column -->
+<div>
+<h4 class="font-label-caps text-label-caps uppercase tracking-widest mb-6">Contact</h4>
+<p class="font-body-md text-on-tertiary/80 mb-6">Our team is available Mon-Sat 10am-7pm</p>
+<a class="flex items-center gap-3 border border-on-tertiary/30 px-6 py-4 hover:bg-on-tertiary hover:text-tertiary transition-all duration-300" href="https://wa.me/920000000000">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="font-label-caps text-label-caps">WhatsApp Support</span>
+</a>
+<div class="mt-8">
+<p class="font-label-caps text-[10px] uppercase opacity-50 mb-3">Secure Payments</p>
+<p class="font-body-md text-[14px]">Cash on Delivery | Bank Transfer | JazzCash | Easypaisa</p>
+</div>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="border-t border-on-tertiary/10 py-8 px-grid-margin-desktop max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-headline-md text-headline-md text-on-tertiary">ZARIYA</span>
+<p class="font-body-md text-[14px] text-on-tertiary/60">© 2024 ZARIYA. All Rights Reserved.</p>
+<div class="flex gap-6">
+<a class="text-on-tertiary/80 hover:text-on-tertiary" href="#"><span class="material-symbols-outlined" data-icon="facebook">qr_code_2</span></a>
+<a class="text-on-tertiary/80 hover:text-on-tertiary" href="#"><span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span></a>
+</div>
+</div>
+</footer>
+<!-- Micro-interactions Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Header scroll effect
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('shadow-sm');
+                    header.classList.remove('border-b-transparent');
+                } else {
+                    header.classList.remove('shadow-sm');
+                }
+            });
+
+            // Intersection observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+                observer.observe(section);
+            });
+        });
+    </script>
+</body></html>

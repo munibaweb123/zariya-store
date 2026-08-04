@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+// Prisma 7: connection URLs live in prisma.config.ts, not here.
+datasource db {
+  provider = "postgresql"
+}
+
+enum PaymentMethod {
+  cod
+  bank_transfer
+}
+
+enum OrderStatus {
+  pending
+  confirmed
+  shipped
+  delivered
+  cancelled
+}
+
+model Order {
+  id          Int    @id @default(autoincrement())
+  orderNumber String @unique
+
+  customerName String
+  phone        String
+
+  address  String
+  city     String
+  province String
+  landmark String?
+
+  paymentMethod PaymentMethod @default(cod)
+  notes         String?
+
+  // Snapshot of cart line items at checkout time (slug/name/price/quantity) —
+  // not a relation, since products live in Sanity, not this database.
+  // Postgres has no composite-type feature in Prisma (that's Mongo-only); the
+  // TS shape lives in lib/orders.ts as `OrderItemSnapshot`.
+  items Json
+
+  subtotal       Int
+  deliveryCharge Int
+  total          Int
+
+  status OrderStatus @default(pending)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
