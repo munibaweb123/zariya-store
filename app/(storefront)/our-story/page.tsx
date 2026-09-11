@@ -31,7 +31,7 @@ const FEATURES = [
   },
   {
     label: "Quality you can trust",
-    description: "From fine fabrics to delicate finishing, quality is the standard behind every ZARIYA piece.",
+    description: "From fine fabrics to delicate finishing, quality is the standard behind every Range Ronaq piece.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-6 w-6">
         <circle cx="12" cy="10" r="7" />
@@ -71,12 +71,12 @@ export default function OurStoryPage() {
           */}
           <p className="text-body-md text-charcoal">
             Founded by two friends with a shared passion for the intricate artistry of Pakistan,
-            ZARIYA began as a way to bridge traditional craftsmanship with the contemporary
+            Range Ronaq began as a way to bridge traditional craftsmanship with the contemporary
             wardrobe.
           </p>
           <p className="text-body-md text-charcoal">
             Growing up amidst vibrant textile markets and the rhythmic hum of handlooms, we saw
-            heritage techniques and talent we didn&apos;t want to see fade. ZARIYA exists to keep
+            heritage techniques and talent we didn&apos;t want to see fade. Range Ronaq exists to keep
             that craftsmanship visible — so hand-embroidered motifs and hand-spun threads keep
             finding a home with the modern woman.
           </p>
@@ -99,7 +99,7 @@ export default function OurStoryPage() {
 
       <section className="bg-blush px-margin-mobile py-section-mobile text-center md:px-margin-desktop md:py-section-desktop">
         <p className="mx-auto max-w-2xl font-heading text-headline-md-mobile italic text-charcoal md:text-headline-md">
-          &ldquo;We believe in beauty that tells a story, and every piece in ZARIYA carries a
+          &ldquo;We believe in beauty that tells a story, and every piece in Range Ronaq carries a
           little of that heritage forward.&rdquo;
         </p>
         <p className="mt-4 text-label-caps text-charcoal/60">— The Founders</p>

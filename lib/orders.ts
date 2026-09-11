@@ -21,14 +21,14 @@ function datePart(date: Date): string {
 }
 
 /**
- * Generates a human-readable order number: ZR-YYMMDD-XXXX (e.g. ZR-260803-K7QF).
+ * Generates a human-readable order number: RR-YYMMDD-XXXX (e.g. RR-260803-K7QF).
  * Pure and DB-independent — does not check uniqueness itself. The `orderNumber`
  * column has a unique constraint (see prisma/schema.prisma); callers creating
  * an Order must catch a unique-constraint violation and call this again,
  * retrying up to 3 times total, per infra/02's Core Capabilities.
  */
 export function generateOrderNumber(date: Date = new Date()): string {
-  return `ZR-${datePart(date)}-${randomCode()}`;
+  return `RR-${datePart(date)}-${randomCode()}`;
 }
 
 export type OrderItemSnapshot = {

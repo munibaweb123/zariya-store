@@ -4,7 +4,7 @@ export function InstagramStrip() {
   return (
     <section className="px-margin-mobile py-section-mobile text-center md:px-margin-desktop md:py-section-desktop">
       <h2 className="font-heading text-headline-md-mobile text-charcoal md:text-headline-md">
-        Follow us @zariya_heritage
+        Follow us @range_ronaq
       </h2>
       <p className="mt-2 text-body-md text-charcoal">
         Tag us to be featured in our lookbook

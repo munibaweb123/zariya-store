@@ -13,7 +13,7 @@ export function Nav() {
             href="/"
             className="font-heading text-headline-md-mobile text-charcoal md:text-headline-md"
           >
-            ZARIYA
+            Range Ronaq
           </Link>
         </div>
 

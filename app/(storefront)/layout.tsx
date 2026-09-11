@@ -20,7 +20,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "ZARIYA",
+  title: "Range Ronaq",
   description:
     "Dresses, perfumes, beauty products, and handmade jewellery — cash on delivery, confirmed over WhatsApp.",
 };
