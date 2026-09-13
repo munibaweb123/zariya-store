@@ -15,12 +15,12 @@ import { Button } from "@/components/ui/Button";
 export function Hero() {
   return (
     <section className="flex flex-col md:flex-row">
-      <div className="flex flex-1 flex-col justify-center gap-4 bg-blush px-margin-mobile py-section-mobile md:px-margin-desktop md:py-section-desktop">
-        <p className="text-label-caps text-maroon">Featured Collection</p>
-        <h1 className="font-heading text-display-lg-mobile text-charcoal md:text-display-lg">
+      <div className="flex flex-1 flex-col justify-center gap-4 bg-blush dark:bg-blush-dark px-margin-mobile py-section-mobile md:px-margin-desktop md:py-section-desktop">
+        <p className="text-label-caps text-maroon dark:text-maroon-dark">Featured Collection</p>
+        <h1 className="font-heading text-display-lg-mobile text-charcoal dark:text-charcoal-dark md:text-display-lg">
           New Eid Collection
         </h1>
-        <p className="max-w-md text-body-md text-charcoal">
+        <p className="max-w-md text-body-md text-charcoal dark:text-charcoal-dark">
           Embrace the essence of tradition with our curated selection of ethereal silhouettes,
           intricate hand-embroidery, and timeless Pakistani craftsmanship designed for your most
           celebrated moments.
@@ -29,7 +29,7 @@ export function Hero() {
           <Button href="/category/dresses">Shop Collection</Button>
         </div>
       </div>
-      <div className="aspect-4/5 w-full bg-blush md:aspect-auto md:flex-1" />
+      <div className="aspect-4/5 w-full bg-blush dark:bg-blush-dark md:aspect-auto md:flex-1" />
     </section>
   );
 }

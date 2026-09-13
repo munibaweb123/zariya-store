@@ -69,7 +69,7 @@ type SeedProduct = {
 const SEED_PRODUCTS: SeedProduct[] = [
   { _id: "seed-product-dresses-1", name: "Maroon Embroidered Maxi", category: "dresses", price: 6500, featured: true, inStock: true, color: "#7a1e3a" },
   { _id: "seed-product-dresses-2", name: "Blush Chiffon Anarkali", category: "dresses", price: 8200, salePrice: 6900, featured: true, inStock: true, color: "#e7c7ce" },
-  { _id: "seed-product-perfumes-1", name: "Zariya Signature Oud", category: "perfumes", price: 4200, featured: true, inStock: true, color: "#2b2b2b" },
+  { _id: "seed-product-perfumes-1", name: "Range Ronaq Signature Oud", category: "perfumes", price: 4200, featured: true, inStock: true, color: "#2b2b2b" },
   { _id: "seed-product-perfumes-2", name: "Rose Mist Attar", category: "perfumes", price: 2800, featured: false, inStock: false, color: "#c98ca0" },
   { _id: "seed-product-beauty-1", name: "Kohl Eyeliner Duo", category: "beauty", price: 1200, featured: true, inStock: true, color: "#1b1c1c" },
   { _id: "seed-product-beauty-2", name: "Rose Water Face Mist", category: "beauty", price: 950, featured: false, inStock: true, color: "#f8f3f4" },

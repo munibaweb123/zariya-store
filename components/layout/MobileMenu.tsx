@@ -28,14 +28,14 @@ export function MobileMenu() {
       </button>
 
       {isOpen && (
-        <div className="fixed inset-0 z-40 overflow-y-auto bg-white pt-24">
+        <div className="fixed inset-0 z-40 overflow-y-auto bg-white pt-24 dark:bg-white-dark">
           <nav aria-label="Main" className="flex flex-col gap-gutter px-margin-mobile py-section-mobile">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-label-caps text-charcoal"
+                className="text-label-caps text-charcoal dark:text-charcoal-dark"
               >
                 {link.label}
               </Link>

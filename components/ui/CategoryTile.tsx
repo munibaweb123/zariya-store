@@ -21,7 +21,7 @@ export function CategoryTile({ label, category, product }: CategoryTileProps) {
 
   return (
     <Link href={`/category/${category}`} className="group block">
-      <div className="relative aspect-4/5 w-full overflow-hidden bg-blush">
+      <div className="relative aspect-4/5 w-full overflow-hidden bg-blush dark:bg-blush-dark">
         {image && (
           <Image
             src={urlForImage(image)}
@@ -32,7 +32,7 @@ export function CategoryTile({ label, category, product }: CategoryTileProps) {
           />
         )}
       </div>
-      <p className="mt-3 text-center text-label-caps text-charcoal">{label}</p>
+      <p className="mt-3 text-center text-label-caps text-charcoal dark:text-charcoal-dark">{label}</p>
     </Link>
   );
 }

@@ -3,7 +3,7 @@ import { NAV_LINKS } from "./nav-links";
 
 // General support link — distinct from the order-specific wa.me deep link
 // that frontend/04-product-detail-page owns in lib/whatsapp.ts.
-const WHATSAPP_SUPPORT_URL = "https://wa.me/923000000000";
+const WHATSAPP_SUPPORT_URL = "https://wa.me/923350817105";
 
 const HELP_ITEMS = ["Shipping & Delivery", "Returns", "FAQs"];
 
@@ -12,7 +12,7 @@ export function Footer() {
     <footer className="bg-charcoal text-white">
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-section-mobile px-margin-mobile py-section-mobile md:grid-cols-4 md:gap-8 md:px-margin-desktop md:py-section-desktop">
         <div className="col-span-2 md:col-span-1">
-          <p className="font-heading text-headline-md-mobile">ZARIYA</p>
+          <p className="font-heading text-headline-md-mobile">Range Ronaq</p>
           <p className="mt-4 text-body-md text-white/70">
             Dresses, perfumes, beauty products, and handmade jewellery.
           </p>
@@ -28,6 +28,11 @@ export function Footer() {
                 </a>
               </li>
             ))}
+            <li>
+              <a href="/our-story" className="text-body-md text-white/90">
+                Our Story
+              </a>
+            </li>
           </ul>
         </div>
 

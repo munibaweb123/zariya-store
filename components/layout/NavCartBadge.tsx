@@ -30,7 +30,7 @@ export function NavCartBadge() {
         />
       </svg>
       {count > 0 && (
-        <span className="absolute right-1 top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-maroon px-1 text-label-caps text-white">
+        <span className="absolute right-1 top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-maroon dark:bg-maroon-dark-solid px-1 text-label-caps text-white">
           {count}
         </span>
       )}

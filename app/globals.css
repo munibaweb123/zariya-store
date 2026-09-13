@@ -1,6 +1,14 @@
 @import "tailwindcss";
 
 /*
+ * Manually-toggled (class-based) dark mode instead of Tailwind v4's default
+ * prefers-color-scheme media query — a user-facing header toggle needs an
+ * explicit .dark ancestor class to key off. :where() keeps this at zero
+ * specificity so dark: utilities don't outrank other overrides.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
  * Design tokens — source of truth: stitch/DESIGN.md (spacing/typography/shape)
  * and CLAUDE.md (the six approved colors). The `colors:` block in DESIGN.md
  * itself is an auto-generated Material palette and is intentionally ignored.
@@ -13,6 +21,22 @@
   --color-maroon: #7a1e3a;
   --color-blush: #f8f3f4;
   --color-line: #ede6e8;
+
+  /*
+   * Dark-mode counterparts — used exclusively via the `dark:` variant, never
+   * as bare/base utilities. Not 1:1 swaps of the six colors above: charcoal
+   * in particular has two incompatible roles (body text vs. Footer's
+   * background), so there is no single "charcoal-dark" that could replace
+   * both without breaking one of them. Apply per usage site instead. All
+   * text/background pairs below are WCAG AA verified (>=4.5:1).
+   */
+  --color-cream-dark: #1c1917;
+  --color-white-dark: #272220;
+  --color-charcoal-dark: #f3edea;
+  --color-maroon-dark: #e0779b;
+  --color-maroon-dark-solid: #9c3159;
+  --color-blush-dark: #2e2624;
+  --color-line-dark: #3d3532;
 
   /* Font families — CSS variables below are provided by next/font/google in app/layout.tsx */
   --font-heading: var(--font-eb-garamond), serif;
@@ -70,10 +94,10 @@
 
 @layer base {
   body {
-    @apply bg-cream text-charcoal font-body antialiased;
+    @apply bg-cream text-charcoal font-body antialiased dark:bg-cream-dark dark:text-charcoal-dark;
   }
 
   :focus-visible {
-    @apply outline-none ring-2 ring-maroon ring-offset-2;
+    @apply outline-none ring-2 ring-maroon ring-offset-2 dark:ring-maroon-dark;
   }
 }

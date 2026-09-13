@@ -6,5 +6,5 @@ import type { SanityImage } from "./queries";
 const builder = createImageUrlBuilder(sanityClient);
 
 export function urlForImage(image: SanityImage): string {
-  return builder.image(image).url();
+  return builder.image(image).auto("format").url();
 }

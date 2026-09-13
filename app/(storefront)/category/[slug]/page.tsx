@@ -80,22 +80,22 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
   return (
     <>
       <div className="px-margin-mobile py-4 md:px-margin-desktop">
-        <p className="text-label-caps text-charcoal">
-          <Link href="/" className="hover:text-maroon">
+        <p className="text-label-caps text-charcoal dark:text-charcoal-dark">
+          <Link href="/" className="hover:text-maroon dark:hover:text-maroon-dark">
             Home
           </Link>{" "}
           / {meta.label}
         </p>
       </div>
 
-      <div className="bg-blush px-margin-mobile py-section-mobile text-center md:px-margin-desktop md:py-section-desktop">
+      <div className="bg-blush dark:bg-blush-dark px-margin-mobile py-section-mobile text-center md:px-margin-desktop md:py-section-desktop">
         <SectionHeading title={meta.label} />
-        <p className="mt-2 text-body-md text-charcoal">{meta.description}</p>
+        <p className="mt-2 text-body-md text-charcoal dark:text-charcoal-dark">{meta.description}</p>
       </div>
 
       <div className="px-margin-mobile py-section-mobile md:px-margin-desktop md:py-section-desktop">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <p className="text-body-md text-charcoal">{allProducts.length} products</p>
+          <p className="text-body-md text-charcoal dark:text-charcoal-dark">{allProducts.length} products</p>
           <SortDropdown category={category} sort={sort} />
         </div>
 
@@ -111,7 +111,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
           <div className="mt-8 flex justify-center">
             <Link
               href={`/category/${category}?sort=${sort}&limit=${limit + PRODUCTS_PER_PAGE}`}
-              className="inline-flex min-h-12 items-center justify-center rounded-xs border border-charcoal px-8 text-label-caps text-charcoal"
+              className="inline-flex min-h-12 items-center justify-center rounded-xs border border-charcoal dark:border-charcoal-dark px-8 text-label-caps text-charcoal dark:text-charcoal-dark"
             >
               Load more
             </Link>
