@@ -44,11 +44,11 @@ const FEATURES = [
 export default function OurStoryPage() {
   return (
     <>
-      <div className="bg-blush px-margin-mobile py-section-mobile text-center md:px-margin-desktop md:py-section-desktop">
-        <h1 className="font-heading text-display-lg-mobile text-charcoal md:text-display-lg">
+      <div className="bg-blush dark:bg-blush-dark px-margin-mobile py-section-mobile text-center md:px-margin-desktop md:py-section-desktop">
+        <h1 className="font-heading text-display-lg-mobile text-charcoal dark:text-charcoal-dark md:text-display-lg">
           Our Story
         </h1>
-        <p className="mt-2 text-label-caps text-charcoal">Crafting heritage for the modern woman.</p>
+        <p className="mt-2 text-label-caps text-charcoal dark:text-charcoal-dark">Crafting heritage for the modern woman.</p>
       </div>
 
       <section className="flex flex-col gap-gutter px-margin-mobile py-section-mobile md:flex-row md:px-margin-desktop md:py-section-desktop md:gap-16">
@@ -57,10 +57,10 @@ export default function OurStoryPage() {
           components/home/Hero.tsx: an empty bg-blush frame at the correct
           aspect ratio, no image, no icon, no placeholder text.
         */}
-        <div className="aspect-4/5 w-full bg-blush md:aspect-auto md:flex-1" />
+        <div className="aspect-4/5 w-full bg-blush dark:bg-blush-dark md:aspect-auto md:flex-1" />
 
         <div className="flex flex-1 flex-col justify-center gap-4">
-          <h2 className="font-heading text-headline-md-mobile text-charcoal md:text-headline-md">
+          <h2 className="font-heading text-headline-md-mobile text-charcoal dark:text-charcoal-dark md:text-headline-md">
             The Visionaries
           </h2>
           {/*
@@ -69,44 +69,44 @@ export default function OurStoryPage() {
             section, but the "friends" relationship detail and every other
             specific in this copy is illustrative, not verified.
           */}
-          <p className="text-body-md text-charcoal">
+          <p className="text-body-md text-charcoal dark:text-charcoal-dark">
             Founded by two friends with a shared passion for the intricate artistry of Pakistan,
             Range Ronaq began as a way to bridge traditional craftsmanship with the contemporary
             wardrobe.
           </p>
-          <p className="text-body-md text-charcoal">
+          <p className="text-body-md text-charcoal dark:text-charcoal-dark">
             Growing up amidst vibrant textile markets and the rhythmic hum of handlooms, we saw
             heritage techniques and talent we didn&apos;t want to see fade. Range Ronaq exists to keep
             that craftsmanship visible — so hand-embroidered motifs and hand-spun threads keep
             finding a home with the modern woman.
           </p>
-          <p className="text-body-md text-charcoal">
+          <p className="text-body-md text-charcoal dark:text-charcoal-dark">
             Our journey is one of curation, care, and quiet pride. We believe what you wear should
             be a reflection of where you come from, made for the life you&apos;re building today.
           </p>
         </div>
       </section>
 
-      <section className="grid grid-cols-1 gap-gutter border-t border-line px-margin-mobile py-section-mobile md:grid-cols-3 md:px-margin-desktop md:py-section-desktop">
+      <section className="grid grid-cols-1 gap-gutter border-t border-line dark:border-line-dark px-margin-mobile py-section-mobile md:grid-cols-3 md:px-margin-desktop md:py-section-desktop">
         {FEATURES.map((feature) => (
-          <div key={feature.label} className="flex flex-col items-center gap-3 text-center text-charcoal">
+          <div key={feature.label} className="flex flex-col items-center gap-3 text-center text-charcoal dark:text-charcoal-dark">
             {feature.icon}
-            <p className="text-body-md text-charcoal">{feature.label}</p>
-            <p className="text-label-caps text-charcoal/60">{feature.description}</p>
+            <p className="text-body-md text-charcoal dark:text-charcoal-dark">{feature.label}</p>
+            <p className="text-label-caps text-charcoal/60 dark:text-charcoal-dark/60">{feature.description}</p>
           </div>
         ))}
       </section>
 
-      <section className="bg-blush px-margin-mobile py-section-mobile text-center md:px-margin-desktop md:py-section-desktop">
-        <p className="mx-auto max-w-2xl font-heading text-headline-md-mobile italic text-charcoal md:text-headline-md">
+      <section className="bg-blush dark:bg-blush-dark px-margin-mobile py-section-mobile text-center md:px-margin-desktop md:py-section-desktop">
+        <p className="mx-auto max-w-2xl font-heading text-headline-md-mobile italic text-charcoal dark:text-charcoal-dark md:text-headline-md">
           &ldquo;We believe in beauty that tells a story, and every piece in Range Ronaq carries a
           little of that heritage forward.&rdquo;
         </p>
-        <p className="mt-4 text-label-caps text-charcoal/60">— The Founders</p>
+        <p className="mt-4 text-label-caps text-charcoal/60 dark:text-charcoal-dark/60">— The Founders</p>
       </section>
 
       <section className="flex flex-col items-center gap-6 px-margin-mobile py-section-mobile text-center md:px-margin-desktop md:py-section-desktop">
-        <h2 className="font-heading text-headline-md-mobile text-charcoal md:text-headline-md">
+        <h2 className="font-heading text-headline-md-mobile text-charcoal dark:text-charcoal-dark md:text-headline-md">
           Explore our collections
         </h2>
         <Button href="/category/all">Shop Now</Button>

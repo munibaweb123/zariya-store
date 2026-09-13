@@ -2,16 +2,17 @@ import Link from "next/link";
 import { MobileMenu } from "./MobileMenu";
 import { NavCartBadge } from "./NavCartBadge";
 import { NAV_LINKS } from "./nav-links";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-white">
+    <header className="sticky top-0 z-50 border-b border-line bg-white dark:border-line-dark dark:bg-white-dark">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-margin-mobile py-4 md:px-margin-desktop">
         <div className="flex items-center gap-gutter">
           <MobileMenu />
           <Link
             href="/"
-            className="font-heading text-headline-md-mobile text-charcoal md:text-headline-md"
+            className="font-heading text-headline-md-mobile text-charcoal md:text-headline-md dark:text-charcoal-dark"
           >
             Range Ronaq
           </Link>
@@ -22,7 +23,7 @@ export function Nav() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-label-caps text-charcoal hover:text-maroon"
+              className="text-label-caps text-charcoal hover:text-maroon dark:text-charcoal-dark"
             >
               {link.label}
             </Link>
@@ -40,6 +41,7 @@ export function Nav() {
               <path strokeLinecap="round" d="m20 20-3.5-3.5" />
             </svg>
           </button>
+          <ThemeToggle />
           <NavCartBadge />
         </div>
       </div>

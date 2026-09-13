@@ -34,8 +34,8 @@ export function FilterChips({ activeSlug }: FilterChipsProps) {
             href={`/category/${chip.slug}`}
             className={
               active
-                ? "rounded-xs bg-maroon px-4 py-2 text-label-caps text-white"
-                : "rounded-xs border border-line px-4 py-2 text-label-caps text-charcoal"
+                ? "rounded-xs bg-maroon px-4 py-2 text-label-caps text-white dark:bg-maroon-dark-solid"
+                : "rounded-xs border border-line px-4 py-2 text-label-caps text-charcoal dark:border-line-dark dark:text-charcoal-dark"
             }
           >
             {chip.label}

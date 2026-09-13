@@ -33,7 +33,7 @@ export function SortDropdown({ category, sort }: SortDropdownProps) {
       onChange={(event) => {
         router.push(`/category/${category}?sort=${event.target.value}`);
       }}
-      className="border border-line bg-white px-3 py-2 text-label-caps text-charcoal"
+      className="border border-line dark:border-line-dark bg-white dark:bg-white-dark px-3 py-2 text-label-caps text-charcoal dark:text-charcoal-dark"
     >
       {(Object.keys(SORT_LABELS) as SortOption[]).map((option) => (
         <option key={option} value={option}>

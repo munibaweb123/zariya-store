@@ -11,15 +11,15 @@ type CartLineItemProps = {
 
 export function CartLineItem({ item, onUpdateQuantity, onRemove }: CartLineItemProps) {
   return (
-    <div className="flex gap-gutter border-b border-line py-6">
+    <div className="flex gap-gutter border-b border-line dark:border-line-dark py-6">
       <div className="w-24 flex-shrink-0 md:w-32">
         <ProductImage src={item.image} alt={item.name} />
       </div>
 
       <div className="flex flex-1 flex-col justify-between">
         <div className="flex justify-between gap-gutter">
-          <p className="text-body-md text-charcoal">{item.name}</p>
-          <p className="text-price-tag text-maroon">
+          <p className="text-body-md text-charcoal dark:text-charcoal-dark">{item.name}</p>
+          <p className="text-price-tag text-maroon dark:text-maroon-dark">
             {formatPrice(item.price * item.quantity)}
           </p>
         </div>
@@ -29,7 +29,7 @@ export function CartLineItem({ item, onUpdateQuantity, onRemove }: CartLineItemP
           <button
             type="button"
             onClick={onRemove}
-            className="text-label-caps text-charcoal underline hover:text-maroon"
+            className="text-label-caps text-charcoal dark:text-charcoal-dark underline hover:text-maroon dark:hover:text-maroon-dark"
           >
             Remove
           </button>

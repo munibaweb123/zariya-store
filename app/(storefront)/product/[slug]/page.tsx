@@ -37,12 +37,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
   return (
     <>
       <div className="px-margin-mobile py-4 md:px-margin-desktop">
-        <p className="text-label-caps text-charcoal">
-          <Link href="/" className="hover:text-maroon">
+        <p className="text-label-caps text-charcoal dark:text-charcoal-dark">
+          <Link href="/" className="hover:text-maroon dark:hover:text-maroon-dark">
             Home
           </Link>{" "}
           /{" "}
-          <Link href={`/category/${product.category}`} className="hover:text-maroon">
+          <Link href={`/category/${product.category}`} className="hover:text-maroon dark:hover:text-maroon-dark">
             {categoryLabel}
           </Link>
         </p>
@@ -52,25 +52,25 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <ImageGallery images={images} alt={product.name} />
 
         <div>
-          <h1 className="font-heading text-display-lg-mobile text-charcoal md:text-display-lg">
+          <h1 className="font-heading text-display-lg-mobile text-charcoal dark:text-charcoal-dark md:text-display-lg">
             {product.name}
           </h1>
 
           <p className="mt-4 text-price-tag">
             {onSale && (
-              <span className="mr-2 text-charcoal/50 line-through">
+              <span className="mr-2 text-charcoal/50 dark:text-charcoal-dark/50 line-through">
                 {formatPrice(product.price)}
               </span>
             )}
-            <span className="text-maroon">{formatPrice(effectivePrice)}</span>
+            <span className="text-maroon dark:text-maroon-dark">{formatPrice(effectivePrice)}</span>
             {onSale && (
-              <span className="ml-2 rounded-xs bg-maroon px-2 py-1 align-middle text-label-caps text-white">
+              <span className="ml-2 rounded-xs bg-maroon dark:bg-maroon-dark-solid px-2 py-1 align-middle text-label-caps text-white">
                 Sale
               </span>
             )}
           </p>
 
-          <p className="mt-4 text-body-md text-charcoal">
+          <p className="mt-4 text-body-md text-charcoal dark:text-charcoal-dark">
             {product.description ?? "No description available for this product yet."}
           </p>
 

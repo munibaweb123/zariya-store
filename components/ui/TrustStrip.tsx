@@ -32,9 +32,9 @@ const ITEMS = [
 
 export function TrustStrip() {
   return (
-    <div className="grid grid-cols-3 gap-gutter bg-blush px-margin-mobile py-section-mobile md:px-margin-desktop">
+    <div className="grid grid-cols-3 gap-gutter bg-blush dark:bg-blush-dark px-margin-mobile py-section-mobile md:px-margin-desktop">
       {ITEMS.map((item) => (
-        <div key={item.label} className="flex flex-col items-center gap-2 text-center text-charcoal">
+        <div key={item.label} className="flex flex-col items-center gap-2 text-center text-charcoal dark:text-charcoal-dark">
           {item.icon}
           <p className="text-label-caps">{item.label}</p>
         </div>

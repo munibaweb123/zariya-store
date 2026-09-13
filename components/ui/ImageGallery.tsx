@@ -17,12 +17,12 @@ export function ImageGallery({ images, alt }: ImageGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   if (images.length === 0) {
-    return <div className="aspect-3/4 w-full bg-blush" />;
+    return <div className="aspect-3/4 w-full bg-blush dark:bg-blush-dark" />;
   }
 
   return (
     <div>
-      <div className="relative aspect-3/4 w-full overflow-hidden bg-blush">
+      <div className="relative aspect-3/4 w-full overflow-hidden bg-blush dark:bg-blush-dark">
         <Image
           src={images[activeIndex]}
           alt={alt}
@@ -43,8 +43,8 @@ export function ImageGallery({ images, alt }: ImageGalleryProps) {
               onClick={() => setActiveIndex(index)}
               className={
                 index === activeIndex
-                  ? "relative aspect-square overflow-hidden bg-blush ring-1 ring-maroon"
-                  : "relative aspect-square overflow-hidden bg-blush"
+                  ? "relative aspect-square overflow-hidden bg-blush ring-1 ring-maroon dark:bg-blush-dark dark:ring-maroon-dark"
+                  : "relative aspect-square overflow-hidden bg-blush dark:bg-blush-dark"
               }
             >
               <Image src={image} alt="" fill sizes="25vw" className="object-cover" />

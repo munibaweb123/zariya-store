@@ -25,7 +25,7 @@ export default function CartPage() {
   if (showEmpty) {
     return (
       <div className="flex flex-col items-center gap-6 px-margin-mobile py-section-mobile text-center md:px-margin-desktop md:py-section-desktop">
-        <p className="text-body-md text-charcoal">Your cart is empty.</p>
+        <p className="text-body-md text-charcoal dark:text-charcoal-dark">Your cart is empty.</p>
         <Button href="/">Continue Shopping</Button>
       </div>
     );
@@ -37,7 +37,7 @@ export default function CartPage() {
   return (
     <div className="grid grid-cols-1 gap-gutter px-margin-mobile py-section-mobile md:grid-cols-3 md:gap-16 md:px-margin-desktop md:py-section-desktop">
       <div className="md:col-span-2">
-        <h1 className="font-heading text-display-lg-mobile text-charcoal md:text-display-lg">
+        <h1 className="font-heading text-display-lg-mobile text-charcoal dark:text-charcoal-dark md:text-display-lg">
           Your cart ({items.length} {items.length === 1 ? "item" : "items"})
         </h1>
 
@@ -53,22 +53,22 @@ export default function CartPage() {
         </div>
       </div>
 
-      <div className="h-fit bg-blush p-6">
-        <h2 className="font-heading text-headline-md-mobile text-charcoal">Order Summary</h2>
+      <div className="h-fit bg-blush dark:bg-blush-dark p-6">
+        <h2 className="font-heading text-headline-md-mobile text-charcoal dark:text-charcoal-dark">Order Summary</h2>
 
-        <div className="mt-6 flex justify-between text-body-md text-charcoal">
+        <div className="mt-6 flex justify-between text-body-md text-charcoal dark:text-charcoal-dark">
           <p>Subtotal</p>
           <p>{formatPrice(subtotal)}</p>
         </div>
 
-        <div className="mt-3 flex justify-between text-body-md text-charcoal">
+        <div className="mt-3 flex justify-between text-body-md text-charcoal dark:text-charcoal-dark">
           <p>Delivery</p>
           <p>{deliveryCharge === 0 ? "Free" : formatPrice(deliveryCharge)}</p>
         </div>
 
-        <div className="mt-6 flex justify-between border-t border-line pt-6 text-price-tag">
-          <p className="text-charcoal">Total</p>
-          <p className="text-maroon">{formatPrice(total)}</p>
+        <div className="mt-6 flex justify-between border-t border-line dark:border-line-dark pt-6 text-price-tag">
+          <p className="text-charcoal dark:text-charcoal-dark">Total</p>
+          <p className="text-maroon dark:text-maroon-dark">{formatPrice(total)}</p>
         </div>
 
         <div className="mt-6 flex flex-col gap-3">

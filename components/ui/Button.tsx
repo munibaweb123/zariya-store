@@ -4,8 +4,8 @@ import type { ComponentPropsWithoutRef } from "react";
 type ButtonVariant = "primary" | "secondary";
 
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
-  primary: "bg-maroon text-white",
-  secondary: "border border-charcoal bg-transparent text-charcoal",
+  primary: "bg-maroon text-white dark:bg-maroon-dark-solid",
+  secondary: "border border-charcoal bg-transparent text-charcoal dark:border-charcoal-dark dark:text-charcoal-dark",
 };
 
 const BASE_CLASSES =

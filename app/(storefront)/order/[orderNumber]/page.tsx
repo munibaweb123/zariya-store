@@ -40,71 +40,71 @@ export default async function OrderConfirmationPage({ params }: OrderConfirmatio
       <ClearCartOnConfirmation />
 
       <div className="mx-auto max-w-2xl px-margin-mobile py-section-mobile text-center md:px-margin-desktop md:py-section-desktop">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center border border-maroon">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center border border-maroon dark:border-maroon-dark">
           <svg
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth={1.5}
-            className="h-8 w-8 text-maroon"
+            className="h-8 w-8 text-maroon dark:text-maroon-dark"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="m5 12 5 5L20 7" />
           </svg>
         </div>
 
-        <h1 className="mt-6 font-heading text-display-lg-mobile text-charcoal md:text-display-lg">
+        <h1 className="mt-6 font-heading text-display-lg-mobile text-charcoal dark:text-charcoal-dark md:text-display-lg">
           Shukriya! Order placed
         </h1>
 
-        <p className="mt-2 text-body-md text-charcoal">
+        <p className="mt-2 text-body-md text-charcoal dark:text-charcoal-dark">
           Order #{order.orderNumber} · We will confirm your order on WhatsApp within a few minutes.
         </p>
 
-        <div className="mt-8 bg-blush p-6 text-left">
-          <h2 className="text-label-caps text-maroon">Order Summary</h2>
+        <div className="mt-8 bg-blush dark:bg-blush-dark p-6 text-left">
+          <h2 className="text-label-caps text-maroon dark:text-maroon-dark">Order Summary</h2>
 
-          <div className="mt-4 flex flex-col gap-4 border-b border-line pb-4">
+          <div className="mt-4 flex flex-col gap-4 border-b border-line dark:border-line-dark pb-4">
             {items.map((item) => (
-              <div key={item.slug} className="flex justify-between text-body-md text-charcoal">
+              <div key={item.slug} className="flex justify-between text-body-md text-charcoal dark:text-charcoal-dark">
                 <p>
-                  {item.name} <span className="text-charcoal/60">x{item.quantity}</span>
+                  {item.name} <span className="text-charcoal/60 dark:text-charcoal-dark/60">x{item.quantity}</span>
                 </p>
-                <p className="text-maroon">{formatPrice(item.price * item.quantity)}</p>
+                <p className="text-maroon dark:text-maroon-dark">{formatPrice(item.price * item.quantity)}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-4 grid grid-cols-1 gap-gutter border-b border-line pb-4 md:grid-cols-2">
+          <div className="mt-4 grid grid-cols-1 gap-gutter border-b border-line dark:border-line-dark pb-4 md:grid-cols-2">
             <div>
-              <p className="text-label-caps text-charcoal/60">Delivery Address</p>
-              <p className="mt-2 text-body-md text-charcoal">{order.customerName}</p>
-              <p className="text-body-md text-charcoal">{order.address}</p>
-              <p className="text-body-md text-charcoal">
+              <p className="text-label-caps text-charcoal/60 dark:text-charcoal-dark/60">Delivery Address</p>
+              <p className="mt-2 text-body-md text-charcoal dark:text-charcoal-dark">{order.customerName}</p>
+              <p className="text-body-md text-charcoal dark:text-charcoal-dark">{order.address}</p>
+              <p className="text-body-md text-charcoal dark:text-charcoal-dark">
                 {order.city}, {order.province}
               </p>
-              {order.landmark && <p className="text-body-md text-charcoal">{order.landmark}</p>}
+              {order.landmark && <p className="text-body-md text-charcoal dark:text-charcoal-dark">{order.landmark}</p>}
             </div>
 
             <div>
-              <p className="text-label-caps text-charcoal/60">Payment Method</p>
-              <p className="mt-2 text-body-md text-charcoal">
+              <p className="text-label-caps text-charcoal/60 dark:text-charcoal-dark/60">Payment Method</p>
+              <p className="mt-2 text-body-md text-charcoal dark:text-charcoal-dark">
                 {PAYMENT_METHOD_LABELS[order.paymentMethod]}
               </p>
             </div>
           </div>
 
           <div className="mt-4 flex flex-col gap-2">
-            <div className="flex justify-between text-body-md text-charcoal">
+            <div className="flex justify-between text-body-md text-charcoal dark:text-charcoal-dark">
               <p>Subtotal</p>
               <p>{formatPrice(order.subtotal)}</p>
             </div>
-            <div className="flex justify-between text-body-md text-charcoal">
+            <div className="flex justify-between text-body-md text-charcoal dark:text-charcoal-dark">
               <p>Shipping</p>
               <p>{order.deliveryCharge === 0 ? "Free" : formatPrice(order.deliveryCharge)}</p>
             </div>
-            <div className="mt-2 flex justify-between border-t border-line pt-4 text-price-tag">
-              <p className="text-charcoal">Total Amount</p>
-              <p className="text-maroon">{formatPrice(order.total)}</p>
+            <div className="mt-2 flex justify-between border-t border-line dark:border-line-dark pt-4 text-price-tag">
+              <p className="text-charcoal dark:text-charcoal-dark">Total Amount</p>
+              <p className="text-maroon dark:text-maroon-dark">{formatPrice(order.total)}</p>
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default async function OrderConfirmationPage({ params }: OrderConfirmatio
           </Button>
         </div>
 
-        <p className="mt-8 border-t border-line pt-8 text-label-caps text-charcoal/60">
+        <p className="mt-8 border-t border-line dark:border-line-dark pt-8 text-label-caps text-charcoal/60 dark:text-charcoal-dark/60">
           Expected delivery: 3-5 working days nationwide via courier
         </p>
       </div>

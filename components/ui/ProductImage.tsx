@@ -14,7 +14,7 @@ type ProductImageProps = {
  * no shadow. Owned here so home/category/product-detail render matching grids.
  */
 export function ProductImage({ src, alt, className, ...props }: ProductImageProps) {
-  const wrapperClasses = ["relative aspect-3/4 w-full overflow-hidden bg-blush", className]
+  const wrapperClasses = ["relative aspect-3/4 w-full overflow-hidden bg-blush dark:bg-blush-dark", className]
     .filter(Boolean)
     .join(" ");
 
